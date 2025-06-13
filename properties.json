@@ -1,0 +1,2477 @@
+[
+  {
+    "id": "res_001",
+    "title": "2 BHK Apartment in Koramangala, Bangalore",
+    "type": "apartment",
+    "price": 8000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560034"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1100,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "swimming pool",
+      "parking"
+    ],
+    "listed_date": "2025-06-01"
+  },
+  {
+    "id": "res_002",
+    "title": "3 BHK Villa in Whitefield, Bangalore",
+    "type": "villa",
+    "price": 15000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560066"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 2200,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "garage",
+      "security"
+    ],
+    "listed_date": "2025-06-02"
+  },
+  {
+    "id": "ind_001",
+    "title": "Warehouse in Bhiwandi, Mumbai",
+    "type": "warehouse",
+    "price": 20000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "421302"
+    },
+    "area_sqft": 10000,
+    "status": "available",
+    "amenities": [
+      "loading dock",
+      "24/7 security",
+      "ample parking"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "ind_002",
+    "title": "Manufacturing Unit in Pune Industrial Area",
+    "type": "factory",
+    "price": 25000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411026"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "power backup",
+      "water supply",
+      "security"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "agr_001",
+    "title": "Farmland in Nashik, Maharashtra",
+    "type": "farmland",
+    "price": 5000000,
+    "currency": "INR",
+    "location": {
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "zipcode": "422001"
+    },
+    "area_sqft": 435600,
+    "status": "available",
+    "amenities": [
+      "water source",
+      "electricity",
+      "road access"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "agr_002",
+    "title": "Vineyard in Nandi Hills, Karnataka",
+    "type": "vineyard",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "562103"
+    },
+    "area_sqft": 217800,
+    "status": "available",
+    "amenities": [
+      "irrigation system",
+      "storage shed",
+      "road access"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "mux_001",
+    "title": "Residential + Commercial Complex in Indore",
+    "type": "mixed-use",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "zipcode": "452001"
+    },
+    "area_sqft": 3000,
+    "status": "available",
+    "amenities": [
+      "elevators",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "mux_002",
+    "title": "Live-Work Space in Pune",
+    "type": "mixed-use",
+    "price": 22000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411001"
+    },
+    "area_sqft": 3500,
+    "status": "available",
+    "amenities": [
+      "high-speed internet",
+      "conference rooms",
+      "cafeteria"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "sp_001",
+    "title": "Hospital in Sector 45, Gurgaon",
+    "type": "hospital",
+    "price": 50000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122001"
+    },
+    "area_sqft": 20000,
+    "status": "available",
+    "amenities": [
+      "operation theatres",
+      "ICU",
+      "ambulance services"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "sp_002",
+    "title": "School Building in Sector 12, Noida",
+    "type": "school",
+    "price": 30000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "classrooms",
+      "playground",
+      "library"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "res_001",
+    "category": "residential",
+    "title": "2 BHK Apartment in Koramangala, Bangalore",
+    "type": "apartment",
+    "price": 8000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560034"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1100,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "swimming pool",
+      "parking"
+    ],
+    "listed_date": "2025-06-01"
+  },
+  {
+    "id": "res_002",
+    "category": "residential",
+    "title": "3 BHK Villa in Whitefield, Bangalore",
+    "type": "villa",
+    "price": 15000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560066"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 2200,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "garage",
+      "security"
+    ],
+    "listed_date": "2025-06-02"
+  },
+  {
+    "id": "com_001",
+    "category": "commercial",
+    "title": "Office Space in Cyber Hub, Gurgaon",
+    "type": "office",
+    "price": 5000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122018"
+    },
+    "area_sqft": 1500,
+    "status": "available",
+    "amenities": [
+      "24/7 security",
+      "elevator",
+      "parking"
+    ],
+    "listed_date": "2025-06-03"
+  },
+  {
+    "id": "com_002",
+    "category": "commercial",
+    "title": "Retail Shop in Sector 15, Noida",
+    "type": "retail",
+    "price": 3000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 800,
+    "status": "available",
+    "amenities": [
+      "high footfall area",
+      "parking"
+    ],
+    "listed_date": "2025-06-04"
+  },
+  {
+    "id": "ind_001",
+    "category": "industrial",
+    "title": "Warehouse in Bhiwandi, Mumbai",
+    "type": "warehouse",
+    "price": 20000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "421302"
+    },
+    "area_sqft": 10000,
+    "status": "available",
+    "amenities": [
+      "loading dock",
+      "24/7 security",
+      "ample parking"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "ind_002",
+    "category": "industrial",
+    "title": "Manufacturing Unit in Pune Industrial Area",
+    "type": "factory",
+    "price": 25000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411026"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "power backup",
+      "water supply",
+      "security"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "agr_001",
+    "category": "agricultural",
+    "title": "Farmland in Nashik, Maharashtra",
+    "type": "farmland",
+    "price": 5000000,
+    "currency": "INR",
+    "location": {
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "zipcode": "422001"
+    },
+    "area_sqft": 435600,
+    "status": "available",
+    "amenities": [
+      "water source",
+      "electricity",
+      "road access"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "agr_002",
+    "category": "agricultural",
+    "title": "Vineyard in Nandi Hills, Karnataka",
+    "type": "vineyard",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "562103"
+    },
+    "area_sqft": 217800,
+    "status": "available",
+    "amenities": [
+      "irrigation system",
+      "storage shed",
+      "road access"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "mux_001",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Complex in Indore",
+    "type": "mixed-use",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "zipcode": "452001"
+    },
+    "area_sqft": 3000,
+    "status": "available",
+    "amenities": [
+      "elevators",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "mux_002",
+    "category": "mixed-use",
+    "title": "Live-Work Space in Pune",
+    "type": "mixed-use",
+    "price": 22000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411001"
+    },
+    "area_sqft": 3500,
+    "status": "available",
+    "amenities": [
+      "high-speed internet",
+      "conference rooms",
+      "cafeteria"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "sp_001",
+    "category": "special-purpose",
+    "title": "Hospital in Sector 45, Gurgaon",
+    "type": "hospital",
+    "price": 50000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122001"
+    },
+    "area_sqft": 20000,
+    "status": "available",
+    "amenities": [
+      "operation theatres",
+      "ICU",
+      "ambulance services"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "sp_002",
+    "category": "special-purpose",
+    "title": "School Building in Sector 12, Noida",
+    "type": "school",
+    "price": 30000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "classrooms",
+      "playground",
+      "library"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "res_003",
+    "category": "residential",
+    "title": "1 BHK Apartment in Andheri West, Mumbai",
+    "type": "apartment",
+    "price": 6500000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400053"
+    },
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area_sqft": 600,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-03"
+  },
+  {
+    "id": "res_004",
+    "category": "residential",
+    "title": "4 BHK Independent House in Indiranagar, Bangalore",
+    "type": "house",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560038"
+    },
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "area_sqft": 2800,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-04"
+  },
+  {
+    "id": "res_005",
+    "category": "residential",
+    "title": "2 BHK Flat in Salt Lake, Kolkata",
+    "type": "apartment",
+    "price": 5500000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700064"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1050,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "parking"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "res_006",
+    "category": "residential",
+    "title": "3 BHK Penthouse in Powai, Mumbai",
+    "type": "penthouse",
+    "price": 25000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400076"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 1900,
+    "status": "available",
+    "amenities": [
+      "swimming pool",
+      "gym",
+      "security"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "res_007",
+    "category": "residential",
+    "title": "1 BHK Studio Apartment in MG Road, Bangalore",
+    "type": "studio",
+    "price": 4500000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560001"
+    },
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area_sqft": 500,
+    "status": "available",
+    "amenities": [
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "res_008",
+    "category": "residential",
+    "title": "Duplex House in Jubilee Hills, Hyderabad",
+    "type": "duplex",
+    "price": 16000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500033"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 2400,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "res_009",
+    "category": "residential",
+    "title": "2 BHK Apartment in Banjara Hills, Hyderabad",
+    "type": "apartment",
+    "price": 9000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500034"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1200,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "swimming pool",
+      "parking"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "res_010",
+    "category": "residential",
+    "title": "Townhouse in Gurgaon Sector 56",
+    "type": "townhouse",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122011"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 1800,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "res_011",
+    "category": "residential",
+    "title": "Condominium in Lower Parel, Mumbai",
+    "type": "condominium",
+    "price": 14000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400013"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1300,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "res_012",
+    "category": "residential",
+    "title": "Vacation Home near Lonavala",
+    "type": "vacation home",
+    "price": 9500000,
+    "currency": "INR",
+    "location": {
+      "city": "Lonavala",
+      "state": "Maharashtra",
+      "zipcode": "410401"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 2000,
+    "status": "available",
+    "amenities": [
+      "garden",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "res_013",
+    "category": "residential",
+    "title": "3 BHK Apartment in Whitefield, Bangalore",
+    "type": "apartment",
+    "price": 13500000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560066"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 1700,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "swimming pool",
+      "parking"
+    ],
+    "listed_date": "2025-06-13"
+  },
+  {
+    "id": "res_014",
+    "category": "residential",
+    "title": "2 BHK Flat in New Town, Kolkata",
+    "type": "apartment",
+    "price": 6000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700156"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1000,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-14"
+  },
+  {
+    "id": "res_015",
+    "category": "residential",
+    "title": "1 BHK Apartment in Salt Lake, Kolkata",
+    "type": "apartment",
+    "price": 4800000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700064"
+    },
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area_sqft": 650,
+    "status": "available",
+    "amenities": [
+      "security"
+    ],
+    "listed_date": "2025-06-15"
+  },
+  {
+    "id": "res_016",
+    "category": "residential",
+    "title": "3 BHK Apartment in Thane, Mumbai",
+    "type": "apartment",
+    "price": 11000000,
+    "currency": "INR",
+    "location": {
+      "city": "Thane",
+      "state": "Maharashtra",
+      "zipcode": "400601"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 1600,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "swimming pool",
+      "parking"
+    ],
+    "listed_date": "2025-06-16"
+  },
+  {
+    "id": "res_017",
+    "category": "residential",
+    "title": "Duplex Apartment in MG Road, Bangalore",
+    "type": "duplex",
+    "price": 17000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560001"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 2100,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-17"
+  },
+  {
+    "id": "res_018",
+    "category": "residential",
+    "title": "Studio Apartment in Indiranagar, Bangalore",
+    "type": "studio",
+    "price": 5000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560038"
+    },
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area_sqft": 550,
+    "status": "available",
+    "amenities": [
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-18"
+  },
+  {
+    "id": "res_019",
+    "category": "residential",
+    "title": "3 BHK Apartment in Powai, Mumbai",
+    "type": "apartment",
+    "price": 21000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400076"
+    },
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area_sqft": 1800,
+    "status": "available",
+    "amenities": [
+      "swimming pool",
+      "gym",
+      "parking"
+    ],
+    "listed_date": "2025-06-19"
+  },
+  {
+    "id": "res_020",
+    "category": "residential",
+    "title": "2 BHK Apartment in Kalyani Nagar, Pune",
+    "type": "apartment",
+    "price": 8500000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411006"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area_sqft": 1100,
+    "status": "available",
+    "amenities": [
+      "gym",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-20"
+  },
+  {
+    "id": "com_003",
+    "category": "commercial",
+    "title": "Hotel in Connaught Place, Delhi",
+    "type": "hotel",
+    "price": 55000000,
+    "currency": "INR",
+    "location": {
+      "city": "Delhi",
+      "state": "Delhi",
+      "zipcode": "110001"
+    },
+    "area_sqft": 25000,
+    "status": "available",
+    "amenities": [
+      "conference halls",
+      "restaurant",
+      "parking"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "com_004",
+    "category": "commercial",
+    "title": "Restaurant Space in Bandra West, Mumbai",
+    "type": "restaurant",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400050"
+    },
+    "area_sqft": 2000,
+    "status": "available",
+    "amenities": [
+      "kitchen",
+      "parking",
+      "seating area"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "com_005",
+    "category": "commercial",
+    "title": "Office Building in Salt Lake, Kolkata",
+    "type": "office",
+    "price": 35000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700064"
+    },
+    "area_sqft": 12000,
+    "status": "available",
+    "amenities": [
+      "elevator",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "com_006",
+    "category": "commercial",
+    "title": "Retail Store in MG Road, Bangalore",
+    "type": "retail",
+    "price": 15000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560001"
+    },
+    "area_sqft": 3500,
+    "status": "available",
+    "amenities": [
+      "high footfall",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "com_007",
+    "category": "commercial",
+    "title": "Medical Center in Andheri East, Mumbai",
+    "type": "medical center",
+    "price": 28000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400059"
+    },
+    "area_sqft": 8000,
+    "status": "available",
+    "amenities": [
+      "ambulance bay",
+      "waiting area",
+      "parking"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "com_008",
+    "category": "commercial",
+    "title": "Office Space in Sector 62, Noida",
+    "type": "office",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201309"
+    },
+    "area_sqft": 4500,
+    "status": "available",
+    "amenities": [
+      "elevator",
+      "cafeteria",
+      "parking"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "com_009",
+    "category": "commercial",
+    "title": "Shopping Center in Sector 29, Gurgaon",
+    "type": "shopping center",
+    "price": 75000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122001"
+    },
+    "area_sqft": 30000,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security",
+      "restaurants"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "com_010",
+    "category": "commercial",
+    "title": "Warehouse for Commercial Use in Pune",
+    "type": "warehouse",
+    "price": 22000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411014"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "loading dock",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "com_011",
+    "category": "commercial",
+    "title": "Retail Space in Connaught Place, Delhi",
+    "type": "retail",
+    "price": 14000000,
+    "currency": "INR",
+    "location": {
+      "city": "Delhi",
+      "state": "Delhi",
+      "zipcode": "110001"
+    },
+    "area_sqft": 2500,
+    "status": "available",
+    "amenities": [
+      "high footfall",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-13"
+  },
+  {
+    "id": "com_012",
+    "category": "commercial",
+    "title": "Restaurant in Banjara Hills, Hyderabad",
+    "type": "restaurant",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500034"
+    },
+    "area_sqft": 2200,
+    "status": "available",
+    "amenities": [
+      "kitchen",
+      "parking",
+      "seating area"
+    ],
+    "listed_date": "2025-06-14"
+  },
+  {
+    "id": "com_013",
+    "category": "commercial",
+    "title": "Office Space in Salt Lake Sector V, Kolkata",
+    "type": "office",
+    "price": 32000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700091"
+    },
+    "area_sqft": 14000,
+    "status": "available",
+    "amenities": [
+      "elevator",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-15"
+  },
+  {
+    "id": "com_014",
+    "category": "commercial",
+    "title": "Retail Store in Sector 18, Noida",
+    "type": "retail",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 1500,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-16"
+  },
+  {
+    "id": "com_015",
+    "category": "commercial",
+    "title": "Medical Center in Whitefield, Bangalore",
+    "type": "medical center",
+    "price": 27000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560066"
+    },
+    "area_sqft": 9000,
+    "status": "available",
+    "amenities": [
+      "ambulance bay",
+      "waiting area",
+      "parking"
+    ],
+    "listed_date": "2025-06-17"
+  },
+  {
+    "id": "com_016",
+    "category": "commercial",
+    "title": "Office Building in MG Road, Bangalore",
+    "type": "office",
+    "price": 37000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560001"
+    },
+    "area_sqft": 16000,
+    "status": "available",
+    "amenities": [
+      "elevator",
+      "cafeteria",
+      "security"
+    ],
+    "listed_date": "2025-06-18"
+  },
+  {
+    "id": "com_017",
+    "category": "commercial",
+    "title": "Shopping Center in Andheri West, Mumbai",
+    "type": "shopping center",
+    "price": 68000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400053"
+    },
+    "area_sqft": 28000,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security",
+      "restaurants"
+    ],
+    "listed_date": "2025-06-19"
+  },
+  {
+    "id": "com_018",
+    "category": "commercial",
+    "title": "Warehouse for Commercial Use in Bhiwandi, Mumbai",
+    "type": "warehouse",
+    "price": 23000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "421302"
+    },
+    "area_sqft": 16000,
+    "status": "available",
+    "amenities": [
+      "loading dock",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-20"
+  },
+  {
+    "id": "com_019",
+    "category": "commercial",
+    "title": "Retail Shop in Jubilee Hills, Hyderabad",
+    "type": "retail",
+    "price": 13500000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500033"
+    },
+    "area_sqft": 1800,
+    "status": "available",
+    "amenities": [
+      "parking",
+      "security",
+      "high footfall"
+    ],
+    "listed_date": "2025-06-21"
+  },
+  {
+    "id": "com_020",
+    "category": "commercial",
+    "title": "Office Space in Sector 45, Gurgaon",
+    "type": "office",
+    "price": 20000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122011"
+    },
+    "area_sqft": 5000,
+    "status": "available",
+    "amenities": [
+      "elevator",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-22"
+  },
+  {
+    "id": "ind_001",
+    "category": "industrial",
+    "title": "Factory in Pune, Maharashtra",
+    "type": "factory",
+    "price": 45000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411014"
+    },
+    "area_sqft": 30000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "power backup",
+      "security"
+    ],
+    "listed_date": "2025-06-01"
+  },
+  {
+    "id": "ind_002",
+    "category": "industrial",
+    "title": "Warehouse in Bhiwandi, Mumbai",
+    "type": "warehouse",
+    "price": 28000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "421302"
+    },
+    "area_sqft": 18000,
+    "status": "available",
+    "amenities": [
+      "loading bay",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-02"
+  },
+  {
+    "id": "ind_003",
+    "category": "industrial",
+    "title": "Distribution Center in Gurgaon, Haryana",
+    "type": "distribution center",
+    "price": 35000000,
+    "currency": "INR",
+    "location": {
+      "city": "Gurgaon",
+      "state": "Haryana",
+      "zipcode": "122001"
+    },
+    "area_sqft": 25000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-03"
+  },
+  {
+    "id": "ind_004",
+    "category": "industrial",
+    "title": "Research Facility in Bangalore, Karnataka",
+    "type": "research and development",
+    "price": 42000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560066"
+    },
+    "area_sqft": 15000,
+    "status": "available",
+    "amenities": [
+      "labs",
+      "power backup",
+      "security"
+    ],
+    "listed_date": "2025-06-04"
+  },
+  {
+    "id": "ind_005",
+    "category": "industrial",
+    "title": "Factory in Hosur, Tamil Nadu",
+    "type": "factory",
+    "price": 39000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hosur",
+      "state": "Tamil Nadu",
+      "zipcode": "635126"
+    },
+    "area_sqft": 28000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "ind_006",
+    "category": "industrial",
+    "title": "Warehouse in Noida, Uttar Pradesh",
+    "type": "warehouse",
+    "price": 26000000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 17000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "ind_007",
+    "category": "industrial",
+    "title": "Distribution Center in Faridabad, Haryana",
+    "type": "distribution center",
+    "price": 32000000,
+    "currency": "INR",
+    "location": {
+      "city": "Faridabad",
+      "state": "Haryana",
+      "zipcode": "121003"
+    },
+    "area_sqft": 24000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "ind_008",
+    "category": "industrial",
+    "title": "Research and Development Lab in Hyderabad, Telangana",
+    "type": "research and development",
+    "price": 44000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500081"
+    },
+    "area_sqft": 16000,
+    "status": "available",
+    "amenities": [
+      "labs",
+      "security",
+      "power backup"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "ind_009",
+    "category": "industrial",
+    "title": "Factory in Surat, Gujarat",
+    "type": "factory",
+    "price": 41000000,
+    "currency": "INR",
+    "location": {
+      "city": "Surat",
+      "state": "Gujarat",
+      "zipcode": "395007"
+    },
+    "area_sqft": 31000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "ind_010",
+    "category": "industrial",
+    "title": "Warehouse in Chennai, Tamil Nadu",
+    "type": "warehouse",
+    "price": 27000000,
+    "currency": "INR",
+    "location": {
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "zipcode": "600010"
+    },
+    "area_sqft": 18000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "ind_011",
+    "category": "industrial",
+    "title": "Distribution Center in Ahmedabad, Gujarat",
+    "type": "distribution center",
+    "price": 33000000,
+    "currency": "INR",
+    "location": {
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "zipcode": "380015"
+    },
+    "area_sqft": 26000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "ind_012",
+    "category": "industrial",
+    "title": "R&D Facility in Pune, Maharashtra",
+    "type": "research and development",
+    "price": 43000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411045"
+    },
+    "area_sqft": 15500,
+    "status": "available",
+    "amenities": [
+      "labs",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "ind_013",
+    "category": "industrial",
+    "title": "Factory in Ludhiana, Punjab",
+    "type": "factory",
+    "price": 39500000,
+    "currency": "INR",
+    "location": {
+      "city": "Ludhiana",
+      "state": "Punjab",
+      "zipcode": "141001"
+    },
+    "area_sqft": 29000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "power backup",
+      "security"
+    ],
+    "listed_date": "2025-06-13"
+  },
+  {
+    "id": "ind_014",
+    "category": "industrial",
+    "title": "Warehouse in Kanpur, Uttar Pradesh",
+    "type": "warehouse",
+    "price": 27500000,
+    "currency": "INR",
+    "location": {
+      "city": "Kanpur",
+      "state": "Uttar Pradesh",
+      "zipcode": "208001"
+    },
+    "area_sqft": 17500,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-14"
+  },
+  {
+    "id": "ind_015",
+    "category": "industrial",
+    "title": "Distribution Center in Chennai, Tamil Nadu",
+    "type": "distribution center",
+    "price": 34500000,
+    "currency": "INR",
+    "location": {
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "zipcode": "600001"
+    },
+    "area_sqft": 25500,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-15"
+  },
+  {
+    "id": "ind_016",
+    "category": "industrial",
+    "title": "Research Lab in Hyderabad, Telangana",
+    "type": "research and development",
+    "price": 44500000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500034"
+    },
+    "area_sqft": 16500,
+    "status": "available",
+    "amenities": [
+      "labs",
+      "power backup",
+      "security"
+    ],
+    "listed_date": "2025-06-16"
+  },
+  {
+    "id": "ind_017",
+    "category": "industrial",
+    "title": "Factory in Jamshedpur, Jharkhand",
+    "type": "factory",
+    "price": 40000000,
+    "currency": "INR",
+    "location": {
+      "city": "Jamshedpur",
+      "state": "Jharkhand",
+      "zipcode": "831001"
+    },
+    "area_sqft": 29500,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "parking",
+      "security"
+    ],
+    "listed_date": "2025-06-17"
+  },
+  {
+    "id": "ind_018",
+    "category": "industrial",
+    "title": "Warehouse in Faridabad, Haryana",
+    "type": "warehouse",
+    "price": 28000000,
+    "currency": "INR",
+    "location": {
+      "city": "Faridabad",
+      "state": "Haryana",
+      "zipcode": "121003"
+    },
+    "area_sqft": 18500,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-18"
+  },
+  {
+    "id": "ind_019",
+    "category": "industrial",
+    "title": "Distribution Center in Noida, Uttar Pradesh",
+    "type": "distribution center",
+    "price": 33500000,
+    "currency": "INR",
+    "location": {
+      "city": "Noida",
+      "state": "Uttar Pradesh",
+      "zipcode": "201301"
+    },
+    "area_sqft": 26000,
+    "status": "available",
+    "amenities": [
+      "loading docks",
+      "security",
+      "parking"
+    ],
+    "listed_date": "2025-06-19"
+  },
+  {
+    "id": "ind_020",
+    "category": "industrial",
+    "title": "Research and Development Center in Bangalore, Karnataka",
+    "type": "research and development",
+    "price": 45000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "zipcode": "560034"
+    },
+    "area_sqft": 17000,
+    "status": "available",
+    "amenities": [
+      "labs",
+      "power backup",
+      "security"
+    ],
+    "listed_date": "2025-06-20"
+  },
+  {
+    "id": "agr_001",
+    "category": "agricultural",
+    "title": "Farmland in Nashik, Maharashtra",
+    "type": "farmland",
+    "price": 15000000,
+    "currency": "INR",
+    "location": {
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "zipcode": "422001"
+    },
+    "area_acres": 25,
+    "status": "available",
+    "crops": [
+      "grapes",
+      "vegetables"
+    ],
+    "listed_date": "2025-06-01"
+  },
+  {
+    "id": "agr_002",
+    "category": "agricultural",
+    "title": "Ranch in Ranchi, Jharkhand",
+    "type": "ranch",
+    "price": 22000000,
+    "currency": "INR",
+    "location": {
+      "city": "Ranchi",
+      "state": "Jharkhand",
+      "zipcode": "834001"
+    },
+    "area_acres": 40,
+    "status": "available",
+    "livestock": [
+      "cattle",
+      "goats"
+    ],
+    "listed_date": "2025-06-02"
+  },
+  {
+    "id": "agr_003",
+    "category": "agricultural",
+    "title": "Orchard in Himachal Pradesh",
+    "type": "orchard",
+    "price": 18000000,
+    "currency": "INR",
+    "location": {
+      "city": "Shimla",
+      "state": "Himachal Pradesh",
+      "zipcode": "171001"
+    },
+    "area_acres": 30,
+    "status": "available",
+    "crops": [
+      "apples",
+      "pears"
+    ],
+    "listed_date": "2025-06-03"
+  },
+  {
+    "id": "agr_004",
+    "category": "agricultural",
+    "title": "Pasture land in Punjab",
+    "type": "pasture",
+    "price": 14000000,
+    "currency": "INR",
+    "location": {
+      "city": "Ludhiana",
+      "state": "Punjab",
+      "zipcode": "141001"
+    },
+    "area_acres": 20,
+    "status": "available",
+    "livestock": [
+      "sheep"
+    ],
+    "listed_date": "2025-06-04"
+  },
+  {
+    "id": "agr_005",
+    "category": "agricultural",
+    "title": "Vineyard in Nashik, Maharashtra",
+    "type": "vineyard",
+    "price": 25000000,
+    "currency": "INR",
+    "location": {
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "zipcode": "422002"
+    },
+    "area_acres": 35,
+    "status": "available",
+    "crops": [
+      "grapes"
+    ],
+    "listed_date": "2025-06-05"
+  },
+  {
+    "id": "agr_006",
+    "category": "agricultural",
+    "title": "Farmland in Chhattisgarh",
+    "type": "farmland",
+    "price": 13000000,
+    "currency": "INR",
+    "location": {
+      "city": "Raipur",
+      "state": "Chhattisgarh",
+      "zipcode": "492001"
+    },
+    "area_acres": 28,
+    "status": "available",
+    "crops": [
+      "rice",
+      "wheat"
+    ],
+    "listed_date": "2025-06-06"
+  },
+  {
+    "id": "agr_007",
+    "category": "agricultural",
+    "title": "Ranch in Maharashtra",
+    "type": "ranch",
+    "price": 21000000,
+    "currency": "INR",
+    "location": {
+      "city": "Aurangabad",
+      "state": "Maharashtra",
+      "zipcode": "431001"
+    },
+    "area_acres": 45,
+    "status": "available",
+    "livestock": [
+      "cattle"
+    ],
+    "listed_date": "2025-06-07"
+  },
+  {
+    "id": "agr_008",
+    "category": "agricultural",
+    "title": "Orchard in Uttarakhand",
+    "type": "orchard",
+    "price": 17000000,
+    "currency": "INR",
+    "location": {
+      "city": "Dehradun",
+      "state": "Uttarakhand",
+      "zipcode": "248001"
+    },
+    "area_acres": 32,
+    "status": "available",
+    "crops": [
+      "peaches",
+      "apples"
+    ],
+    "listed_date": "2025-06-08"
+  },
+  {
+    "id": "agr_009",
+    "category": "agricultural",
+    "title": "Pasture land in Haryana",
+    "type": "pasture",
+    "price": 13500000,
+    "currency": "INR",
+    "location": {
+      "city": "Hisar",
+      "state": "Haryana",
+      "zipcode": "125001"
+    },
+    "area_acres": 22,
+    "status": "available",
+    "livestock": [
+      "cattle"
+    ],
+    "listed_date": "2025-06-09"
+  },
+  {
+    "id": "agr_010",
+    "category": "agricultural",
+    "title": "Vineyard in Tamil Nadu",
+    "type": "vineyard",
+    "price": 24000000,
+    "currency": "INR",
+    "location": {
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "zipcode": "641001"
+    },
+    "area_acres": 38,
+    "status": "available",
+    "crops": [
+      "grapes"
+    ],
+    "listed_date": "2025-06-10"
+  },
+  {
+    "id": "agr_011",
+    "category": "agricultural",
+    "title": "Farmland in Andhra Pradesh",
+    "type": "farmland",
+    "price": 12500000,
+    "currency": "INR",
+    "location": {
+      "city": "Vijayawada",
+      "state": "Andhra Pradesh",
+      "zipcode": "520001"
+    },
+    "area_acres": 27,
+    "status": "available",
+    "crops": [
+      "pulses",
+      "rice"
+    ],
+    "listed_date": "2025-06-11"
+  },
+  {
+    "id": "agr_012",
+    "category": "agricultural",
+    "title": "Ranch in Gujarat",
+    "type": "ranch",
+    "price": 21500000,
+    "currency": "INR",
+    "location": {
+      "city": "Surat",
+      "state": "Gujarat",
+      "zipcode": "395006"
+    },
+    "area_acres": 42,
+    "status": "available",
+    "livestock": [
+      "goats",
+      "sheep"
+    ],
+    "listed_date": "2025-06-12"
+  },
+  {
+    "id": "agr_013",
+    "category": "agricultural",
+    "title": "Orchard in Kerala",
+    "type": "orchard",
+    "price": 16000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kochi",
+      "state": "Kerala",
+      "zipcode": "682001"
+    },
+    "area_acres": 29,
+    "status": "available",
+    "crops": [
+      "mangoes",
+      "bananas"
+    ],
+    "listed_date": "2025-06-13"
+  },
+  {
+    "id": "agr_014",
+    "category": "agricultural",
+    "title": "Pasture land in Rajasthan",
+    "type": "pasture",
+    "price": 12000000,
+    "currency": "INR",
+    "location": {
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zipcode": "302001"
+    },
+    "area_acres": 18,
+    "status": "available",
+    "livestock": [
+      "camels",
+      "cattle"
+    ],
+    "listed_date": "2025-06-14"
+  },
+  {
+    "id": "agr_015",
+    "category": "agricultural",
+    "title": "Vineyard in Maharashtra",
+    "type": "vineyard",
+    "price": 24500000,
+    "currency": "INR",
+    "location": {
+      "city": "Nashik",
+      "state": "Maharashtra",
+      "zipcode": "422003"
+    },
+    "area_acres": 36,
+    "status": "available",
+    "crops": [
+      "grapes"
+    ],
+    "listed_date": "2025-06-15"
+  },
+  {
+    "id": "agr_016",
+    "category": "agricultural",
+    "title": "Farmland in Odisha",
+    "type": "farmland",
+    "price": 13000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bhubaneswar",
+      "state": "Odisha",
+      "zipcode": "751001"
+    },
+    "area_acres": 24,
+    "status": "available",
+    "crops": [
+      "rice",
+      "vegetables"
+    ],
+    "listed_date": "2025-06-16"
+  },
+  {
+    "id": "agr_017",
+    "category": "agricultural",
+    "title": "Ranch in Karnataka",
+    "type": "ranch",
+    "price": 22500000,
+    "currency": "INR",
+    "location": {
+      "city": "Mysore",
+      "state": "Karnataka",
+      "zipcode": "570001"
+    },
+    "area_acres": 44,
+    "status": "available",
+    "livestock": [
+      "cattle",
+      "horses"
+    ],
+    "listed_date": "2025-06-17"
+  },
+  {
+    "id": "agr_018",
+    "category": "agricultural",
+    "title": "Orchard in Uttarakhand",
+    "type": "orchard",
+    "price": 17500000,
+    "currency": "INR",
+    "location": {
+      "city": "Nainital",
+      "state": "Uttarakhand",
+      "zipcode": "263001"
+    },
+    "area_acres": 31,
+    "status": "available",
+    "crops": [
+      "apples",
+      "pears"
+    ],
+    "listed_date": "2025-06-18"
+  },
+  {
+    "id": "agr_019",
+    "category": "agricultural",
+    "title": "Pasture land in West Bengal",
+    "type": "pasture",
+    "price": 12500000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700001"
+    },
+    "area_acres": 21,
+    "status": "available",
+    "livestock": [
+      "cattle"
+    ],
+    "listed_date": "2025-06-19"
+  },
+  {
+    "id": "agr_020",
+    "category": "agricultural",
+    "title": "Vineyard in Punjab",
+    "type": "vineyard",
+    "price": 23500000,
+    "currency": "INR",
+    "location": {
+      "city": "Amritsar",
+      "state": "Punjab",
+      "zipcode": "143001"
+    },
+    "area_acres": 37,
+    "status": "available",
+    "crops": [
+      "grapes"
+    ],
+    "listed_date": "2025-06-20"
+  },
+  {
+    "id": "mix_001",
+    "category": "mixed-use",
+    "title": "Apartment over Retail Store in Mumbai, Maharashtra",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 45000000,
+    "currency": "INR",
+    "location": {
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "zipcode": "400001"
+    },
+    "area_sqft": 3500,
+    "status": "available",
+    "residential_units": 5,
+    "commercial_units": 2,
+    "listed_date": "2025-06-21"
+  },
+  {
+    "id": "mix_002",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Complex in Pune, Maharashtra",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 75000000,
+    "currency": "INR",
+    "location": {
+      "city": "Pune",
+      "state": "Maharashtra",
+      "zipcode": "411001"
+    },
+    "area_sqft": 7000,
+    "status": "available",
+    "commercial_units": 10,
+    "industrial_units": 3,
+    "listed_date": "2025-06-22"
+  },
+  {
+    "id": "mix_003",
+    "category": "mixed-use",
+    "title": "Live-Work Loft in Bengaluru, Karnataka",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 38000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "zipcode": "560001"
+    },
+    "area_sqft": 3200,
+    "status": "available",
+    "residential_units": 8,
+    "commercial_units": 1,
+    "listed_date": "2025-06-23"
+  },
+  {
+    "id": "mix_004",
+    "category": "mixed-use",
+    "title": "Retail + Industrial Space in Chennai, Tamil Nadu",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 67000000,
+    "currency": "INR",
+    "location": {
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "zipcode": "600001"
+    },
+    "area_sqft": 6800,
+    "status": "available",
+    "commercial_units": 12,
+    "industrial_units": 4,
+    "listed_date": "2025-06-24"
+  },
+  {
+    "id": "mix_005",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Building in Hyderabad, Telangana",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 49000000,
+    "currency": "INR",
+    "location": {
+      "city": "Hyderabad",
+      "state": "Telangana",
+      "zipcode": "500001"
+    },
+    "area_sqft": 3600,
+    "status": "available",
+    "residential_units": 6,
+    "commercial_units": 3,
+    "listed_date": "2025-06-25"
+  },
+  {
+    "id": "mix_006",
+    "category": "mixed-use",
+    "title": "Live-Work Studio in Ahmedabad, Gujarat",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 34000000,
+    "currency": "INR",
+    "location": {
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "zipcode": "380001"
+    },
+    "area_sqft": 3000,
+    "status": "available",
+    "residential_units": 7,
+    "commercial_units": 2,
+    "listed_date": "2025-06-26"
+  },
+  {
+    "id": "mix_007",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Estate in Kolkata, West Bengal",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 72000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "zipcode": "700001"
+    },
+    "area_sqft": 7200,
+    "status": "available",
+    "commercial_units": 15,
+    "industrial_units": 5,
+    "listed_date": "2025-06-27"
+  },
+  {
+    "id": "mix_008",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Complex in Jaipur, Rajasthan",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 47000000,
+    "currency": "INR",
+    "location": {
+      "city": "Jaipur",
+      "state": "Rajasthan",
+      "zipcode": "302001"
+    },
+    "area_sqft": 3550,
+    "status": "available",
+    "residential_units": 5,
+    "commercial_units": 4,
+    "listed_date": "2025-06-28"
+  },
+  {
+    "id": "mix_009",
+    "category": "mixed-use",
+    "title": "Live-Work Lofts in Lucknow, Uttar Pradesh",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 36000000,
+    "currency": "INR",
+    "location": {
+      "city": "Lucknow",
+      "state": "Uttar Pradesh",
+      "zipcode": "226001"
+    },
+    "area_sqft": 3300,
+    "status": "available",
+    "residential_units": 6,
+    "commercial_units": 2,
+    "listed_date": "2025-06-29"
+  },
+  {
+    "id": "mix_010",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Property in Surat, Gujarat",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 70000000,
+    "currency": "INR",
+    "location": {
+      "city": "Surat",
+      "state": "Gujarat",
+      "zipcode": "395001"
+    },
+    "area_sqft": 7100,
+    "status": "available",
+    "commercial_units": 13,
+    "industrial_units": 4,
+    "listed_date": "2025-06-30"
+  },
+  {
+    "id": "mix_011",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Building in Bhopal, Madhya Pradesh",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 46000000,
+    "currency": "INR",
+    "location": {
+      "city": "Bhopal",
+      "state": "Madhya Pradesh",
+      "zipcode": "462001"
+    },
+    "area_sqft": 3400,
+    "status": "available",
+    "residential_units": 7,
+    "commercial_units": 3,
+    "listed_date": "2025-07-01"
+  },
+  {
+    "id": "mix_012",
+    "category": "mixed-use",
+    "title": "Live-Work Space in Chandigarh",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 35000000,
+    "currency": "INR",
+    "location": {
+      "city": "Chandigarh",
+      "state": "Chandigarh",
+      "zipcode": "160001"
+    },
+    "area_sqft": 3100,
+    "status": "available",
+    "residential_units": 5,
+    "commercial_units": 2,
+    "listed_date": "2025-07-02"
+  },
+  {
+    "id": "mix_013",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Space in Coimbatore, Tamil Nadu",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 69000000,
+    "currency": "INR",
+    "location": {
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "zipcode": "641001"
+    },
+    "area_sqft": 6800,
+    "status": "available",
+    "commercial_units": 14,
+    "industrial_units": 5,
+    "listed_date": "2025-07-03"
+  },
+  {
+    "id": "mix_014",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Units in Indore, Madhya Pradesh",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 48000000,
+    "currency": "INR",
+    "location": {
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "zipcode": "452001"
+    },
+    "area_sqft": 3600,
+    "status": "available",
+    "residential_units": 6,
+    "commercial_units": 3,
+    "listed_date": "2025-07-04"
+  },
+  {
+    "id": "mix_015",
+    "category": "mixed-use",
+    "title": "Live-Work Lofts in Patna, Bihar",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 34000000,
+    "currency": "INR",
+    "location": {
+      "city": "Patna",
+      "state": "Bihar",
+      "zipcode": "800001"
+    },
+    "area_sqft": 3000,
+    "status": "available",
+    "residential_units": 4,
+    "commercial_units": 2,
+    "listed_date": "2025-07-05"
+  },
+  {
+    "id": "mix_016",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Complex in Vadodara, Gujarat",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 73000000,
+    "currency": "INR",
+    "location": {
+      "city": "Vadodara",
+      "state": "Gujarat",
+      "zipcode": "390001"
+    },
+    "area_sqft": 7100,
+    "status": "available",
+    "commercial_units": 13,
+    "industrial_units": 4,
+    "listed_date": "2025-07-06"
+  },
+  {
+    "id": "mix_017",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Building in Guwahati, Assam",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 45000000,
+    "currency": "INR",
+    "location": {
+      "city": "Guwahati",
+      "state": "Assam",
+      "zipcode": "781001"
+    },
+    "area_sqft": 3500,
+    "status": "available",
+    "residential_units": 6,
+    "commercial_units": 2,
+    "listed_date": "2025-07-07"
+  },
+  {
+    "id": "mix_018",
+    "category": "mixed-use",
+    "title": "Live-Work Loft in Thiruvananthapuram, Kerala",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 37000000,
+    "currency": "INR",
+    "location": {
+      "city": "Thiruvananthapuram",
+      "state": "Kerala",
+      "zipcode": "695001"
+    },
+    "area_sqft": 3200,
+    "status": "available",
+    "residential_units": 5,
+    "commercial_units": 1,
+    "listed_date": "2025-07-08"
+  },
+  {
+    "id": "mix_019",
+    "category": "mixed-use",
+    "title": "Commercial + Industrial Estate in Kanpur, Uttar Pradesh",
+    "types": [
+      "commercial",
+      "industrial"
+    ],
+    "price": 68000000,
+    "currency": "INR",
+    "location": {
+      "city": "Kanpur",
+      "state": "Uttar Pradesh",
+      "zipcode": "208001"
+    },
+    "area_sqft": 7000,
+    "status": "available",
+    "commercial_units": 12,
+    "industrial_units": 3,
+    "listed_date": "2025-07-09"
+  },
+  {
+    "id": "mix_020",
+    "category": "mixed-use",
+    "title": "Residential + Commercial Complex in Varanasi, Uttar Pradesh",
+    "types": [
+      "residential",
+      "commercial"
+    ],
+    "price": 44000000,
+    "currency": "INR",
+    "location": {
+      "city": "Varanasi",
+      "state": "Uttar Pradesh",
+      "zipcode": "221001"
+    },
+    "area_sqft": 3400,
+    "status": "available",
+    "residential_units": 5,
+    "commercial_units": 3,
+    "listed_date": "2025-07-10"
+  }
+]

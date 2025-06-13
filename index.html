@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public APIs Landing Page</title>
+  <!-- Bootstrap 5.3 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero {
+      background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .api-card {
+      transition: box-shadow 0.2s;
+    }
+    .api-card:hover {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    }
+    .footer {
+      background: #f8f9fa;
+      padding: 16px 0;
+      text-align: center;
+      color: #6c757d;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Discover Free Public APIs</h1>
+      <p class="lead mb-4">Explore a curated list of open APIs for your next project, demo, or inspiration.</p>
+      <a href="#apis" class="btn btn-light btn-lg">Browse APIs</a>
+    </div>
+  </section>
+
+  <!-- APIs Section -->
+  <section id="apis" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Featured Public APIs</h2>
+      <div class="row g-4">
+        <!-- Example API Card 1 -->
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">OpenWeatherMap</h5>
+              <p class="card-text">Get current and forecasted weather data for any location worldwide, including over 200,000 cities.</p>
+              <a href="https://openweathermap.org/api" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <!-- Example API Card 2 -->
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">The Cat API</h5>
+              <p class="card-text">A fun API to get random pictures of cats for your pet projects or just for fun.</p>
+              <a href="https://thecatapi.com/" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <!-- Example API Card 3 -->
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">REST Countries</h5>
+              <p class="card-text">Get detailed information about countries, such as population, currencies, and languages.</p>
+              <a href="https://restcountries.com/" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- More APIs (Optional) -->
+      <div class="row g-4 mt-1">
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Public APIs List</h5>
+              <p class="card-text">A collective list of free APIs for use in software and web development across categories.</p>
+              <a href="https://github.com/public-apis/public-apis" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">NASA Open APIs</h5>
+              <p class="card-text">Access NASA data, including imagery, Mars Rover photos, and more directly from their open APIs.</p>
+              <a href="https://api.nasa.gov/" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title">JokeAPI</h5>
+              <p class="card-text">Get programming jokes or general jokes in various formats, filtered by type and category.</p>
+              <a href="https://jokeapi.dev/" class="btn btn-primary" target="_blank">Explore API</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-5 bg-light">
+    <div class="container">
+      <h3 class="mb-3">Know More Cool APIs?</h3>
+      <p>Suggest your favorite API and help others build amazing things!</p>
+      <a href="https://github.com/public-apis/public-apis#contributing" target="_blank" class="btn btn-outline-primary">Contribute an API</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2025 Public APIs Landing Page &mdash; Made with <span style="color: #dc3545;">&#10084;</span> using Bootstrap 5.3
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS CDN (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Widget</title>
+    <style>
+        :root {
+            --chat-bg-dark: #121212;
+            --chat-bg-light: #ffffff;
+            --chat-primary: #1b6338;
+            --chat-secondary: #232b2b;
+            --chat-highlight: #4caf50;
+            --chat-text-light: #fff;
+            --chat-text-dark: #222;
+            --chat-code-bg: #232b2b;
+            --chat-code-text: #f8f8f2;
+            --chat-border: #30363d;
+            --chat-bubble-user: #1b6338;
+            --chat-bubble-bot: #232b2b;
+        }
+        .ai-chatbot-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 350px;
+            max-width: 98vw;
+            max-height: 65vh;
+            z-index: 999999;
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+            background: var(--chat-bg-dark);
+            color: var(--chat-text-light);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: box-shadow 0.18s;
+        }
+        .ai-chatbot-header {
+            background: var(--chat-primary);
+            color: var(--chat-text-light);
+            font-size: 19px;
+            font-weight: 600;
+            padding: 14px 18px;
+            text-align: center;
+            border-radius: 14px 14px 0 0;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .ai-chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            background: var(--chat-secondary);
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #444 #222;
+        }
+        .ai-chatbot-messages::-webkit-scrollbar {
+            width: 6px;
+            background: #222;
+        }
+        .ai-chatbot-messages::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+        .ai-chatbot-messages::-webkit-scrollbar-track {
+            background: #222;
+        }
+        .ai-chatbot-message {
+            max-width: 90%;
+            min-width: 60px;
+            box-sizing: border-box;
+            margin-bottom: 7px;
+            padding: 10px 14px 10px 14px;
+            border-radius: 18px;
+            word-break: break-word;
+            font-size: 15px;
+            line-height: 1.55;
+            position: relative;
+            box-shadow: 0 1px 6px 0 rgba(0,0,0,0.07);
+            transition: background 0.2s;
+        }
+        .ai-chatbot-message.user {
+            margin-left: auto;
+            background: var(--chat-bubble-user);
+            color: #fff;
+            border-bottom-right-radius: 6px;
+            border-bottom-left-radius: 18px;
+        }
+        .ai-chatbot-message.bot {
+            margin-right: auto;
+            background: var(--chat-bubble-bot);
+            color: var(--chat-text-light);
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 18px;
+        }
+        .ai-chatbot-message pre, .ai-chatbot-message code {
+            background: var(--chat-code-bg);
+            color: var(--chat-code-text);
+            border-radius: 7px;
+            font-size: 14px;
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+        }
+        .ai-chatbot-message pre {
+            max-width: 100%;
+            overflow-x: auto;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 10px 0 5px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #444 #232b2b;
+        }
+        .ai-chatbot-message pre::-webkit-scrollbar {
+            height: 6px;
+            background: #232b2b;
+        }
+        .ai-chatbot-message pre::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
+        }
+        .ai-chatbot-message pre::-webkit-scrollbar-track {
+            background: #232b2b;
+        }
+        .ai-chatbot-message code {
+            padding: 2px 5px;
+        }
+        .ai-chatbot-copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: var(--chat-highlight);
+            color: #fff;
+            border: none;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: background 0.2s;
+            display: none;
+        }
+        .ai-chatbot-message:hover .ai-chatbot-copy-btn,
+        .ai-chatbot-message:focus-within .ai-chatbot-copy-btn {
+            display: block;
+        }
+        .ai-chatbot-input-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 10px 8px 10px;
+            background: var(--chat-bg-dark);
+            border-top: 1px solid var(--chat-border);
+            gap: 8px;
+            flex-shrink: 0;
+        }
+        .ai-chatbot-input {
+            flex: 1;
+            min-width: 0;
+            padding: 16px 16px;
+            border-radius: 20px;
+            border: 1.5px solid var(--chat-border);
+            background: var(--chat-secondary);
+            color: var(--chat-text-light);
+            outline: none;
+            font-size: 16px;
+            height: 48px;
+            box-sizing: border-box;
+            transition: border 0.18s;
+        }
+        .ai-chatbot-input:focus {
+            border: 1.5px solid var(--chat-highlight);
+        }
+        .ai-chatbot-send-btn {
+            background: var(--chat-highlight);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 0 18px;
+            font-size: 16px;
+            height: 48px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ai-chatbot-send-btn:hover {
+            background: var(--chat-primary);
+        }
+        .ai-chatbot-model-select {
+            background: var(--chat-secondary);
+            color: var(--chat-text-light);
+            border: 1px solid var(--chat-border);
+            border-radius: 18px;
+            padding: 7px 8px;
+            font-size: 14px;
+            margin-left: 6px;
+        }
+        .ai-chatbot-typing {
+            color: #c3ffb6;
+            font-size: 14px;
+            margin: 4px 0 0 2px;
+            font-style: italic;
+            letter-spacing: 0.2px;
+            min-height: 22px;
+        }
+        .ai-chatbot-footer {
+            text-align: center;
+            color: #b5b5b5;
+            font-size: 13px;
+            padding: 6px 0 10px 0;
+            letter-spacing: 0.02em;
+            background: transparent;
+            user-select: none;
+        }
+        #ai-chatbot-toggle-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999998;
+            background: var(--chat-primary);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 54px;
+            height: 54px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.22);
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+        }
+        #ai-chatbot-toggle-btn:hover {
+            background: var(--chat-highlight);
+        }
+        @media (max-width: 600px) {
+            .ai-chatbot-container {
+                width: 98vw;
+                min-width: 0;
+                right: 1vw;
+                bottom: 1vw;
+                border-radius: 10px;
+            }
+            #ai-chatbot-toggle-btn {
+                right: 1vw;
+                bottom: 1vw;
+            }
+            .ai-chatbot-header {
+                font-size: 17px;
+                padding: 12px 8px;
+            }
+            .ai-chatbot-input {
+                font-size: 15px;
+                height: 44px;
+                padding: 13px 10px;
+            }
+            .ai-chatbot-send-btn {
+                font-size: 15px;
+                height: 44px;
+            }
+        }
+    </style>
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- Widget Toggle Button -->
+    <button id="ai-chatbot-toggle-btn" title="Open AI Chat"><span>💬</span></button>
+    <div class="ai-chatbot-container" id="ai-chatbot" style="display:none;">
+        <div class="ai-chatbot-header">
+            AI Chatbot
+        </div>
+        <div class="ai-chatbot-messages" id="ai-chatbot-messages">
+            <div class="ai-chatbot-message bot">
+                Hello! I'm your AI assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="ai-chatbot-typing" id="ai-chatbot-typing" style="display:none;"></div>
+        <div class="ai-chatbot-input-row">
+            <input type="text" id="ai-chatbot-input" class="ai-chatbot-input" placeholder="Type your message..." autocomplete="off">
+            <button id="ai-chatbot-send" class="ai-chatbot-send-btn">Send</button>
+            
+        </div>
+      <select id="ai-chatbot-model" class="ai-chatbot-model-select">
+                <option value="gpt-4o-mini">GPT-4o-mini</option>
+                <option value="gpt-4o">GPT-4o</option>
+                <option value="o1">O1</option>
+                <option value="o1-mini">O1-mini</option>
+                <option value="o1-pro">O1-pro</option>
+                <option value="o3">O3</option>
+                <option value="o3-mini">O3-mini</option>
+                <option value="o4-mini">O4-mini</option>
+                <option value="gpt-4.1">GPT-4.1</option>
+                <option value="gpt-4.1-mini">GPT-4.1-mini</option>
+                <option value="gpt-4.1-nano">GPT-4.1-nano</option>
+                <option value="gpt-4.5-preview">GPT-4.5-preview</option>
+                <option value="claude-sonnet-4">Claude-sonnet-4</option>
+                <option value="claude-opus-4">Claude-opus-4</option>
+                <option value="claude-3-7-sonnet">Claude-3-7-sonnet</option>
+                <option value="claude-3-5-sonnet">Claude-3-5-sonnet</option>
+                <option value="deepseek-chat">DeepSeek Chat</option>
+                <option value="deepseek-reasoner">DeepSeek Reasoner</option>
+                <option value="gemini-2.0-flash">Gemini-2.0-flash</option>
+                <option value="gemini-1.5-flash">Gemini-1.5-flash</option>
+                <option value="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo">Meta-Llama-3.1-8B-Instruct-Turbo</option>
+                <option value="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo">Meta-Llama-3.1-70B-Instruct-Turbo</option>
+                <option value="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo">Meta-Llama-3.1-405B-Instruct-Turbo</option>
+                <option value="mistral-large-latest">Mistral-large-latest</option>
+                <option value="pixtral-large-latest">Pixtral-large-latest</option>
+                <option value="codestral-latest">Codestral-latest</option>
+                <option value="google/gemma-2-27b-it">Google/Gemma-2-27b-it</option>
+                <option value="grok-beta">Grok-beta</option>
+            </select>
+        <div class="ai-chatbot-footer">
+            Developed by <b>namanmahi</b>
+        </div>
+    </div>
+    <script src="https://js.puter.com/v2/"></script>
+    <script>
+        (function() {
+            // Toggle widget logic for embedding/non-conflict
+            const $toggleBtn = document.getElementById('ai-chatbot-toggle-btn');
+            const $container = document.getElementById('ai-chatbot');
+            $toggleBtn.onclick = function() {
+                if($container.style.display === 'none') {
+                    $container.style.display = 'flex';
+                    $toggleBtn.style.display = 'none';
+                    setTimeout(() =>
+                        document.getElementById('ai-chatbot-input').focus(), 150
+                    );
+                }
+            };
+            // Hide widget when clicking outside
+            document.addEventListener('mousedown', function(e) {
+                if($container.style.display !== 'none' && !$container.contains(e.target) && !$toggleBtn.contains(e.target)) {
+                    $container.style.display = 'none';
+                    $toggleBtn.style.display = 'flex';
+                }
+            });
+
+            // Chatbot logic
+            const $messages = document.getElementById('ai-chatbot-messages');
+            const $input = document.getElementById('ai-chatbot-input');
+            const $sendBtn = document.getElementById('ai-chatbot-send');
+            const $model = document.getElementById('ai-chatbot-model');
+            const $typing = document.getElementById('ai-chatbot-typing');
+
+            function formatMarkdown(text) {
+                text = String(text || "");
+                // block code
+                text = text.replace(/```([\s\S]*?)```/g, function(_, code) {
+                    return `<pre><code>${escapeHtml(code)}</code></pre>`;
+                });
+                // inline code
+                text = text.replace(/`([^`]+?)`/g, '<code>$1</code>');
+                // bold
+                text = text.replace(/\*\*([^\*]+?)\*\*/g, '<b>$1</b>');
+                // italic
+                text = text.replace(/\*([^\*]+?)\*/g, '<i>$1</i>');
+                // links
+                text = text.replace(/\[([^\]]+?)\]\((https?:\/\/[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+                // newlines
+                text = text.replace(/\n/g, '<br>');
+                return text;
+            }
+            function escapeHtml(str) {
+                return String(str).replace(/&/g, '&amp;')
+                          .replace(/</g, '&lt;')
+                          .replace(/>/g, '&gt;');
+            }
+
+            function addMessage(role, text) {
+                const div = document.createElement('div');
+                div.className = `ai-chatbot-message ${role}`;
+                div.innerHTML = formatMarkdown(text);
+
+                // Add copy buttons to each code block
+                div.querySelectorAll('pre').forEach((pre) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'ai-chatbot-copy-btn';
+                    btn.textContent = 'Copy';
+                    btn.type = 'button';
+                    btn.onclick = () => {
+                        const code = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+                        navigator.clipboard.writeText(code);
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => btn.textContent = 'Copy', 1000);
+                    };
+                    pre.appendChild(btn);
+                });
+                $messages.appendChild(div);
+                $messages.scrollTop = $messages.scrollHeight;
+                // Render math if present
+                if (window.MathJax) MathJax.typeset();
+            }
+
+            function showTyping(show, modelName) {
+                $typing.style.display = show ? 'block' : 'none';
+                $typing.textContent = show
+                    ? (modelName && modelName.toLowerCase().includes('deepseek') ? 'DeepSeek is typing...' : 'AI is typing...')
+                    : '';
+            }
+
+            function parseAIResponse(resp) {
+                // If it's a string, return as is
+                if (typeof resp === "string") return resp;
+                // If it has a .message.content property, return that
+                if (resp && resp.message && resp.message.content) return resp.message.content;
+                // Otherwise, show as pretty JSON
+                return JSON.stringify(resp, null, 2);
+            }
+
+            function sendMessage() {
+                const msg = $input.value.trim();
+                if (!msg) return;
+                addMessage('user', msg);
+                $input.value = '';
+                showTyping(true, $model.value);
+
+                puter.ai.chat(msg, { model: $model.value })
+                    .then(resp => {
+                        showTyping(false);
+                        addMessage('bot', parseAIResponse(resp));
+                    })
+                    .catch(err => {
+                        showTyping(false);
+                        let errMsg = err?.message || (typeof err === "object" ? JSON.stringify(err, null, 2) : err || "Unknown error.");
+                        addMessage('bot', `Error: ${errMsg}`);
+                    });
+            }
+
+            $sendBtn.onclick = sendMessage;
+            $input.onkeypress = (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            };
+
+            // Theme toggle for dark/light mode (scoped)
+            const themeBtn = document.createElement('button');
+            themeBtn.textContent = 'Toggle Theme';
+            themeBtn.style.position = 'absolute';
+            themeBtn.style.top = '10px';
+            themeBtn.style.right = '12px';
+            themeBtn.style.padding = '4px 10px';
+            themeBtn.style.background = '#222';
+            themeBtn.style.color = '#fff';
+            themeBtn.style.border = 'none';
+            themeBtn.style.borderRadius = '5px';
+            themeBtn.style.fontSize = '12px';
+            themeBtn.style.cursor = 'pointer';
+            themeBtn.onclick = function() {
+                const body = document.body;
+                const dark = body.getAttribute('data-theme') !== 'light';
+                body.setAttribute('data-theme', dark ? 'light' : 'dark');
+                $container.style.background = dark ? 'var(--chat-bg-light)' : 'var(--chat-bg-dark)';
+            };
+            document.querySelector('.ai-chatbot-header').appendChild(themeBtn);
+
+            new MutationObserver(() => {
+                $messages.scrollTop = $messages.scrollHeight;
+            }).observe($messages, { childList: true });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Public APIs for Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap 5.3 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"/>
+  <!-- Remixicon for icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --glass-dark: rgba(18,24,34,0.95);
+      --glass-light: rgba(255,255,255,0.93);
+      --glass-blur: 22px;
+      --glass-border-dark: rgba(52,255,158,0.18);
+      --glass-border-light: rgba(27,99,56,0.11);
+      --glass-shadow: 0 8px 32px 0 rgba(36,255,158,0.13);
+      --green: #27e27d;
+      --green-gradient: linear-gradient(90deg, #27e27d 0%, #36ff9b 100%);
+      --deep-black: #0e1117;
+      --mono: 'Fira Mono', 'Menlo', 'Consolas', 'SFMono-Regular', monospace;
+      --focus-outline: #36ff9b;
+      --text-glass-light: #fff;
+      --text-glass-dark: #181c23;
+    }
+    html,body {
+      background: var(--deep-black);
+      color: var(--text-glass-light);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    body[data-theme="light"] {
+      background: #f7fff9;
+      color: var(--text-glass-dark);
+    }
+    ::-webkit-scrollbar {
+      width: 11px;
+      background: rgba(18,24,34,0.32);
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #36ff9b66;
+      border-radius: 8px;
+      border: 2px solid rgba(52,255,158,0.19);
+    }
+    /* Glass Nav */
+    .glass-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--glass-dark);
+      border-bottom: 1.5px solid var(--glass-border-dark);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      padding: 0.7em 0;
+      box-shadow: 0 2px 8px rgba(36,255,158,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .glass-nav .nav-title {
+      font-family: var(--mono), monospace;
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: var(--green-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-left: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+    .glass-nav .nav-links {
+      display: flex;
+      gap: 1.4em;
+      align-items: center;
+      margin-right: 1.1rem;
+    }
+    .glass-nav .nav-link {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 1.07em;
+      padding: 0.25em 0.7em;
+      border-radius: 0.9em;
+      transition: background 0.13s, color 0.13s;
+      text-decoration: none;
+      position: relative;
+    }
+    .glass-nav .nav-link:hover, .glass-nav .nav-link.active {
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      text-decoration: none;
+    }
+    .theme-toggle-btn {
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      border: none;
+      border-radius: 16px;
+      font-weight: bold;
+      font-size: 1.04rem;
+      padding: 7px 17px;
+      box-shadow: 0 2px 12px 0 rgba(36,255,158,0.10);
+      cursor: pointer;
+      transition: background 0.13s, color 0.13s;
+      margin-left: 0.5rem;
+    }
+    .theme-toggle-btn:focus {
+      outline: 2px solid var(--focus-outline);
+    }
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 65vh;
+      position: relative;
+      padding: 2vw 0 3vw 0;
+      background: none;
+      overflow: hidden;
+    }
+    .hero-content {
+      flex: 1 1 480px;
+      z-index: 2;
+      min-width: 320px;
+      max-width: 620px;
+      padding-left: 2vw;
+    }
+    .hero-title {
+      font-family: var(--mono), monospace;
+      font-size: 2.3rem;
+      font-weight: 900;
+      background: var(--green-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.18rem;
+      margin: 0.8em 0 1.1em 0;
+      color: var(--text-glass-light);
+      opacity: 0.94;
+    }
+    .hero-btns {
+      margin-bottom: 1.5em;
+    }
+    .hero .btn {
+      font-weight: 700;
+      font-size: 1.08rem;
+      padding: 0.7rem 2.1rem;
+      border-radius: 2rem;
+      margin-right: 0.7em;
+      margin-bottom: 0.7em;
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      border: none;
+      box-shadow: 0 1.5px 16px 0 rgba(36,255,158,0.11);
+      transition: background 0.16s, color 0.16s, box-shadow 0.18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+    .hero .btn:hover, .hero .btn:focus {
+      background: #27e27d !important;
+      color: #fff !important;
+    }
+    .hero-search-row {
+      max-width: 410px;
+      width: 95vw;
+      margin-top: 1.7em;
+      background: var(--glass-dark);
+      border-radius: 1.2em;
+      border: 2px solid var(--glass-border-dark);
+      box-shadow: var(--glass-shadow);
+      padding: 0.5em 0.8em;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      backdrop-filter: blur(var(--glass-blur));
+    }
+    .search-bar {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.16rem;
+      padding: 8px 0;
+      flex: 1;
+      outline: none;
+      box-shadow: none;
+    }
+    .search-bar::placeholder { color: #c5ffd7; opacity: .7; }
+    .search-icon-btn {
+      background: var(--green-gradient);
+      border: none;
+      color: var(--deep-black);
+      border-radius: 1.2em;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 8px 18px;
+      transition: background 0.13s, color 0.13s;
+      outline: none;
+      margin-left: -2.2em;
+    }
+    .search-icon-btn:focus, .search-icon-btn:hover {
+      background: #27e27d;
+      color: #fff;
+    }
+    .search-hint {
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 0.5em;
+      font-size: 0.98em;
+    }
+    .api-glass-card {
+      flex: 0 0 320px;
+      background: var(--glass-dark);
+      border: 2px solid var(--glass-border-dark);
+      border-radius: 2.1em;
+      box-shadow: var(--glass-shadow);
+      min-height: 310px;
+      margin-right: 1vw;
+      margin-left: 3vw;
+      padding: 2.2em 2em 1.8em 2em;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeInRight 1s;
+      margin-top: 2em;
+    }
+    .api-glass-card .icon {
+      font-size: 3.2em;
+      color: var(--green);
+      margin-bottom: 0.6em;
+      background: var(--glass-light);
+      border-radius: 1.5em;
+      padding: 0.22em 0.28em;
+      box-shadow: 0 2px 10px #27e27d44;
+    }
+    .api-glass-card .api-title {
+      font-family: var(--mono), monospace;
+      font-size: 1.13em;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+      color: #fff;
+    }
+    .api-glass-card .api-desc {
+      color: #a6ffd7;
+      font-size: 1.07em;
+      text-align: center;
+      margin-bottom: 1.3em;
+    }
+    .api-glass-card .btn {
+      margin: 0;
+      width: 100%;
+      border-radius: 1.2em;
+      font-size: 1.08em;
+    }
+    .hero-bg-blur {
+      position: absolute;
+      right: -25vw;
+      top: 10vh;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, #36ff9b33 0%, transparent 100%);
+      filter: blur(30px);
+      z-index: 0;
+    }
+    @media (max-width:991.98px) {
+      .hero { flex-direction: column; padding: 3vw 0 1vw 0;}
+      .hero .hero-content, .hero .api-glass-card { margin: 0 auto; }
+      .api-glass-card { margin-top: 2.2em;}
+    }
+    @media (max-width: 767.98px) {
+      .glass-nav .nav-title { font-size: 1.1rem; margin-left: 0.7em;}
+      .glass-nav .nav-links { gap: 0.6em; margin-right: 0.7em;}
+      .hero-inner, .api-card, .stats-section, .cta-section, .contributors-section, .blog-section, .playground-section, .faq-section, .newsletter-section, .testimonial-section, .categories-section {
+        padding: 1.3rem 0.5rem !important;
+      }
+    }
+    @media (max-width:575.98px) {
+      .hero { flex-direction: column; padding: 1vw 0 1vw 0;}
+      .hero .hero-content, .hero .api-glass-card { padding: 0 !important; }
+      .hero .hero-title { font-size: 1.09rem; }
+      .api-glass-card { min-width: 0; padding: 1em 0.4em 1em 0.4em;}
+    }
+    /* Glass Cards, Tabs, Inputs, etc. */
+    .glass-section, .api-card, .faq-section, .stats-section, .newsletter-section, .contributors-section, .blog-section, .playground-section, .cta-section, .testimonial-section, .categories-section, .search-anim-row, .category-tab, .testimonial-card {
+      background: var(--glass-dark) !important;
+      border: 2px solid var(--glass-border-dark) !important;
+      color: var(--text-glass-light) !important;
+      box-shadow: var(--glass-shadow);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      transition: background 0.24s, border 0.24s, color 0.16s;
+    }
+    body[data-theme="light"] .glass-section, body[data-theme="light"] .api-card, body[data-theme="light"] .faq-section, body[data-theme="light"] .stats-section, body[data-theme="light"] .newsletter-section, body[data-theme="light"] .contributors-section, body[data-theme="light"] .blog-section, body[data-theme="light"] .playground-section, body[data-theme="light"] .cta-section, body[data-theme="light"] .testimonial-section, body[data-theme="light"] .categories-section, body[data-theme="light"] .search-anim-row, body[data-theme="light"] .category-tab, body[data-theme="light"] .testimonial-card {
+      background: var(--glass-light) !important;
+      border-color: var(--glass-border-light) !important;
+      color: var(--text-glass-dark) !important;
+    }
+    /* API Categories */
+    .categories-section {
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      padding: 1.2rem 0.5rem;
+      border-radius: 1.2em;
+      box-shadow: var(--glass-shadow);
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .category-tab {
+      display: inline-flex;
+      align-items: center;
+      background: var(--glass-dark);
+      color: var(--green);
+      font-weight: 700;
+      border: 2px solid var(--glass-border-dark);
+      border-radius: 1.5em;
+      margin: 0 0.5em 0.7em 0;
+      padding: 8px 22px;
+      font-size: 1.13em;
+      cursor: pointer;
+      transition: background 0.13s, color 0.13s, border 0.13s;
+      box-shadow: 0 1px 7px rgba(36,255,158,0.10);
+      outline: none;
+      user-select: none;
+    }
+    .category-tab.selected, .category-tab:hover, .category-tab:focus {
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      border-color: #27e27d;
+    }
+    /* API Cards */
+    .api-card {
+      border-radius: 1.5rem;
+      min-height: 200px;
+      color: var(--text-glass-light);
+      overflow: hidden;
+      animation: fadeInUp 1.1s;
+      transition: box-shadow 0.22s, transform 0.16s, background 0.18s, border 0.18s;
+    }
+    .api-card:hover,.api-card:focus-within {
+      box-shadow: 0 8px 32px rgba(36,255,158,0.23), 0 1.5px 10px rgba(39,226,125,0.08);
+      border-color: #27e27d;
+      transform: translateY(-4px) scale(1.027);
+    }
+    .api-card .btn {
+      border-radius: 1rem;
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: none;
+      transition: background 0.14s, color 0.14s;
+      outline: none;
+    }
+    .api-card .btn:focus,.api-card .btn:hover {
+      background: #27e27d !important;
+      color: #fff !important;
+    }
+    .api-card .card-title {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1.18rem;
+      margin-bottom: 0.3rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    .api-badge {
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      border-radius: 0.7rem;
+      font-weight: 700;
+      font-size: 0.84em;
+      padding: 0.21em 0.75em;
+      margin-left: 0.3em;
+    }
+    .badge-new {
+      background: #fff;
+      color: var(--green);
+      border-radius: 0.7rem;
+      font-weight: 700;
+      font-size: 0.79em;
+      padding: 0.14em 0.6em;
+      margin-left: 0.3em;
+      border: 1.5px solid var(--green);
+      letter-spacing: 0.01em;
+    }
+    /* Stats */
+    .stats-section {
+      background: var(--glass-dark);
+      border-radius: 1.3rem;
+      border: 2px solid var(--glass-border-dark);
+      box-shadow: 0 2px 20px rgba(36,255,158,0.10);
+      margin: 2.5rem auto 2.5rem auto;
+      max-width: 940px;
+      padding: 2.2rem 1.1rem;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+    }
+    .stat-card {
+      text-align: center;
+      color: var(--green);
+      font-size: 1.1rem;
+      font-weight: 700;
+      min-width: 120px;
+    }
+    .stat-card .stat-figure {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(36,255,158,0.13);
+      font-family: var(--mono), monospace;
+    }
+    /* Playground */
+    .playground-section {
+      background: var(--glass-dark);
+      border-radius: 1.4rem;
+      border: 2px solid var(--glass-border-dark);
+      box-shadow: 0 2px 18px rgba(36,255,158,0.10);
+      padding: 2.5rem 1.3rem;
+      max-width: 850px;
+      margin: 2.5rem auto 2.5rem auto;
+      animation: fadeInUp 1.2s;
+    }
+    .playground-section label { font-weight: bold; color: var(--green);}
+    .playground-section .form-select, .playground-section .form-control {
+      background: var(--glass-dark);
+      border: 2px solid var(--glass-border-dark);
+      color: #fff;
+      border-radius: 1.1rem;
+      outline: none;
+      font-weight: 500;
+    }
+    .playground-section .form-control:focus, .playground-section .form-select:focus {
+      border-color: var(--green);
+      background: rgba(36,255,158,0.07);
+      color: var(--green);
+    }
+    .playground-section .btn {
+      border-radius: 1rem;
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      border: none;
+      transition: background 0.14s, color 0.14s;
+      outline: none;
+      margin-top: 10px;
+    }
+    .playground-section .btn:focus, .playground-section .btn:hover {
+      background: #27e27d !important;
+      color: #fff !important;
+    }
+    .playground-result {
+      background: rgba(36,255,158,0.07);
+      color: #fff;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      max-height: 320px;
+      overflow: auto;
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      font-size: 1.09em;
+      transition: background 0.13s;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    /* Testimonials */
+    .testimonial-section {
+      margin: 2.5rem auto;
+      max-width: 900px;
+      padding: 1.2rem 0.5rem;
+      border-radius: 1.2em;
+    }
+    .testimonial-card {
+      background: var(--glass-dark);
+      border: 2px solid var(--glass-border-dark);
+      border-radius: 1.3rem;
+      box-shadow: 0 2px 12px rgba(36,255,158,0.10);
+      color: var(--text-glass-light);
+      padding: 1.2rem 1.8rem;
+      margin: 0.8rem 0;
+      position: relative;
+      animation: fadeInUp 1s;
+    }
+    .testimonial-card .quote {
+      font-style: italic;
+      font-size: 1.14rem;
+      color: var(--green);
+    }
+    .testimonial-card .by {
+      font-weight: bold;
+      margin-top: 0.5em;
+      color: var(--green);
+      font-size: 1.01em;
+    }
+    /* CTA */
+    .cta-section {
+      border-radius: 1.2rem;
+      margin: 0 0 32px 0;
+      background: var(--glass-dark);
+      box-shadow: 0 2px 12px rgba(52,255,158,0.09);
+      color: var(--text-glass-light);
+      border: 2px solid var(--glass-border-dark);
+      padding: 38px 10px 31px 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .cta-section .btn {
+      border-radius: 1.2rem;
+      padding: 0.65rem 2.1rem;
+      font-weight: 600;
+      background: transparent;
+      color: var(--green);
+      border: 2px solid var(--green);
+      transition: background 0.13s, color 0.13s;
+    }
+    .cta-section .btn:focus, .cta-section .btn:hover {
+      background: var(--green-gradient);
+      color: var(--deep-black);
+    }
+    /* Contributors & Community */
+    .contributors-section {
+      background: var(--glass-dark);
+      border-radius: 1.3rem;
+      border: 2px solid var(--glass-border-dark);
+      box-shadow: 0 2px 12px rgba(36,255,158,0.11);
+      margin: 2.5rem auto 2.5rem auto;
+      max-width: 820px;
+      padding: 2.2rem 1.1rem;
+      text-align: center;
+    }
+    .contributors-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-top: 1.5rem;
+    }
+    .contributor-avatar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.97em;
+    }
+    .contributor-avatar img {
+      width: 62px; height: 62px;
+      border-radius: 50%;
+      border: 2.5px solid var(--green);
+      object-fit: cover;
+      margin-bottom: 0.25em;
+      box-shadow: 0 2px 7px rgba(36,255,158,0.09);
+      background: #222;
+    }
+    .contributor-avatar span {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .contributor-avatar a { color: var(--green); text-decoration: none;}
+    .contributor-avatar a:hover { color: #36ff9b;}
+    /* FAQ */
+    .faq-section {
+      background: var(--glass-dark);
+      border-radius: 1.2rem;
+      border: 2px solid var(--glass-border-dark);
+      margin: 2.5rem auto;
+      max-width: 820px;
+      padding: 2.2rem 1.1rem;
+    }
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--green);
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 0.3rem;
+      transition: color 0.12s;
+    }
+    .faq-question:hover { color: #fff;}
+    .faq-answer {
+      display: none;
+      color: #fff;
+      background: rgba(36,255,158,0.06);
+      border-radius: 0.6rem;
+      padding: 0.7rem 0.95rem;
+      margin-top: 0.07rem;
+    }
+    /* Newsletter */
+    .newsletter-section {
+      background: var(--glass-dark);
+      border-radius: 1.2rem;
+      border: 2px solid var(--glass-border-dark);
+      margin: 2.5rem auto;
+      max-width: 600px;
+      padding: 2.2rem 1.1rem 1.2rem 1.1rem;
+      text-align: center;
+    }
+    .newsletter-form input[type="email"] {
+      border-radius: 1.2rem;
+      background: var(--glass-dark);
+      border: 2px solid var(--glass-border-dark);
+      color: #fff;
+      padding: 0.7rem 1.3rem;
+      margin-right: 0.5rem;
+      outline: none;
+      transition: border 0.14s;
+      min-width: 170px;
+      margin-top: 0.7rem;
+    }
+    .newsletter-form input[type="email"]:focus {
+      border-color: var(--green);
+      background: rgba(36,255,158,0.07);
+      color: var(--green);
+    }
+    .newsletter-form button {
+      border-radius: 1.2rem;
+      background: var(--green-gradient);
+      color: var(--deep-black);
+      font-weight: 600;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      font-size: 1.1rem;
+      margin-top: 0.7rem;
+      transition: background 0.13s, color 0.13s;
+    }
+    .newsletter-form button:focus, .newsletter-form button:hover {
+      background: #27e27d !important;
+      color: #fff !important;
+    }
+    /* Blog/Tutorials */
+    .blog-section {
+      background: var(--glass-dark);
+      border-radius: 1.2rem;
+      border: 2px solid var(--glass-border-dark);
+      margin: 2.5rem auto;
+      max-width: 820px;
+      padding: 2.2rem 1.1rem;
+    }
+    .blog-card {
+      background: rgba(36,255,158,0.07);
+      border-radius: 1rem;
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      margin: 0.8rem 0;
+      position: relative;
+      box-shadow: 0 2px 7px rgba(36,255,158,0.06);
+      border-left: 4px solid var(--green);
+    }
+    .blog-card a {
+      color: var(--green);
+      font-weight: 700;
+      text-decoration: underline dotted;
+    }
+    .blog-card a:hover { color: #fff;}
+    /* Social Share */
+    .social-share {
+      margin: 2.2rem 0 1.3rem 0;
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+    }
+    .social-share a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass-dark);
+      color: var(--green);
+      border: 2px solid var(--glass-border-dark);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 9px rgba(36,255,158,0.13);
+      transition: background 0.13s, color 0.13s, transform 0.13s, border 0.13s;
+      outline: none;
+    }
+    .social-share a:hover, .social-share a:focus {
+      background: #27e27d !important;
+      color: #fff;
+      border-color: #27e27d;
+      transform: scale(1.16);
+    }
+    /* Footer */
+    .footer {
+      background: var(--glass-dark) !important;
+      color: #a3bcb2 !important;
+      border-top: 2px solid var(--glass-border-dark);
+      text-align: center;
+      font-size: 1em;
+      margin-top: 36px;
+      border-radius: 1em 1em 0 0;
+      box-shadow: 0 -2px 18px 0 rgba(36,255,158,0.07);
+      backdrop-filter: blur(var(--glass-blur));
+    }
+    body[data-theme="light"] .footer {
+      background: var(--glass-light) !important;
+      color: #5c5c5c !important;
+      border-top: 2px solid var(--glass-border-light);
+    }
+  </style>
+</head>
+<body>
+  <!-- Glass Nav Bar -->
+  <nav class="glass-nav shadow-sm">
+    <div class="nav-title">
+      <i class="ri-terminal-window-line"></i> Public APIs
+    </div>
+    <div class="nav-links">
+      <a href="#apis" class="nav-link active">APIs</a>
+      <a href="#playground" class="nav-link">Playground</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contributors" class="nav-link">Contributors</a>
+      <a href="#newsletter" class="nav-link">Newsletter</a>
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme"><i class="ri-moon-clear-line"></i></button>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero d-flex">
+    <div class="hero-content">
+      <div class="hero-title"><i class="ri-terminal-window-line"></i> Public APIs for Developers</div>
+      <div class="hero-desc">Find, test, and use open APIs without hassle.<br>
+        <span style="color:var(--green);font-weight:600;">Glassmorphism. Open Source. Developer Focused.</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#apis" class="btn"><i class="ri-arrow-down-line"></i> Browse APIs</a>
+        <a href="https://docs.publicapis.dev/" target="_blank" class="btn"><i class="ri-book-open-line"></i> API Docs</a>
+        <a href="https://github.com/public-apis/public-apis" target="_blank" class="btn"><i class="ri-github-fill"></i> Open Source</a>
+      </div>
+      <form class="hero-search-row" autocomplete="off" onsubmit="return false;">
+        <input type="text" class="search-bar" id="apiSearchInput" placeholder="🔎 Search for APIs (e.g. weather, cats, NASA...)">
+        <button class="search-icon-btn" id="apiSearchBtn" aria-label="Search"><i class="ri-search-2-line"></i></button>
+      </form>
+      <div id="searchResultHint" class="search-hint" style="display:none;"></div>
+    </div>
+    <div class="api-glass-card animate__animated animate__fadeInRight d-none d-lg-flex flex-column align-items-center">
+      <div class="icon"><i class="ri-cloud-windy-line"></i></div>
+      <div class="api-title">OpenWeatherMap</div>
+      <div class="api-desc">Get weather for 200,000+ cities, free.</div>
+      <a href="#playground" class="btn w-100"><i class="ri-play-circle-line"></i> Try in Playground</a>
+    </div>
+    <div class="hero-bg-blur"></div>
+  </section>
+  <!-- API Categories -->
+  <section class="categories-section text-center">
+    <div class="container">
+      <h3 class="mb-3 fw-bold">Explore by Category</h3>
+      <div id="categoryTabs">
+        <span class="category-tab selected" data-category="all"><i class="ri-apps-2-line"></i> All</span>
+        <span class="category-tab" data-category="Weather"><i class="ri-cloud-windy-line"></i> Weather</span>
+        <span class="category-tab" data-category="Fun"><i class="ri-emotion-laugh-line"></i> Fun</span>
+        <span class="category-tab" data-category="Geo"><i class="ri-flag-line"></i> Geo</span>
+        <span class="category-tab" data-category="Space"><i class="ri-rocket-2-line"></i> Space</span>
+        <span class="category-tab" data-category="Directory"><i class="ri-global-line"></i> Directory</span>
+      </div>
+    </div>
+  </section>
+  <!-- Stats Section -->
+  <section class="stats-section d-flex justify-content-center align-items-center flex-wrap">
+    <div class="stat-card">
+      <div class="stat-figure" id="statApiCount">6</div>
+      APIs Listed
+    </div>
+    <div class="stat-card">
+      <div class="stat-figure" id="statCategoryCount">5</div>
+      Categories
+    </div>
+    <div class="stat-card">
+      <div class="stat-figure" id="statContributors">3</div>
+      Contributors
+    </div>
+    <div class="stat-card">
+      <div class="stat-figure" id="statUsers">1,250+</div>
+      Users Served
+    </div>
+    <div class="stat-card">
+      <div class="stat-figure" id="statNewApis">1</div>
+      New This Month
+    </div>
+  </section>
+  <!-- API Cards Section -->
+  <section id="apis" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center fw-bold">Featured Public APIs</h2>
+      <div class="row g-4" id="apiCardList">
+        <div class="col-md-6 col-lg-4" data-category="Weather">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-cloud-windy-line"></i> OpenWeatherMap <span class="api-badge">Weather</span></h5>
+              <p class="card-text">Get current and forecasted weather data for any location worldwide, including over 200,000 cities.</p>
+              <a href="https://openweathermap.org/api" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-category="Fun">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-cat-line"></i> The Cat API <span class="api-badge">Fun</span> <span class="badge-new">New</span></h5>
+              <p class="card-text">A fun API to get random pictures of cats for your pet projects or just for fun.</p>
+              <a href="https://thecatapi.com/" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-category="Geo">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-flag-line"></i> REST Countries <span class="api-badge">Geo</span></h5>
+              <p class="card-text">Get detailed information about countries, such as population, currencies, and languages.</p>
+              <a href="https://restcountries.com/" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-category="Directory">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-global-line"></i> Public APIs List <span class="api-badge">Directory</span></h5>
+              <p class="card-text">A collective list of free APIs for use in software and web development across categories.</p>
+              <a href="https://github.com/public-apis/public-apis" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-category="Space">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-rocket-2-line"></i> NASA Open APIs <span class="api-badge">Space</span></h5>
+              <p class="card-text">Access NASA data, including imagery, Mars Rover photos, and more directly from their open APIs.</p>
+              <a href="https://api.nasa.gov/" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-category="Fun">
+          <div class="card api-card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><i class="ri-emotion-laugh-line"></i> JokeAPI <span class="api-badge">Fun</span></h5>
+              <p class="card-text">Get programming jokes or general jokes in various formats, filtered by type and category.</p>
+              <a href="https://jokeapi.dev/" class="btn" target="_blank" rel="noopener">Explore API</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Playground Section -->
+  <section class="playground-section" id="playground">
+    <div class="container">
+      <h3 class="mb-4 fw-bold text-center">Live API Playground <i class="ri-terminal-window-line"></i></h3>
+      <form id="playgroundForm" class="row gy-2 gx-3 align-items-center justify-content-center">
+        <div class="col-12 col-md-4">
+          <label for="playgroundApi" class="form-label">Select API</label>
+          <select class="form-select" id="playgroundApi">
+            <option value="cat">The Cat API</option>
+            <option value="country">REST Countries</option>
+            <option value="joke">JokeAPI</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-4" id="playgroundInputCol">
+          <label for="playgroundInput" class="form-label" id="playgroundInputLabel">Request Param</label>
+          <input type="text" class="form-control" id="playgroundInput" placeholder="(Optional)">
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn"><i class="ri-play-circle-line"></i> Run</button>
+        </div>
+      </form>
+      <div id="playgroundResult" class="playground-result" style="display:none;"></div>
+    </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section class="testimonial-section">
+    <div class="container">
+      <h3 class="mb-4 fw-bold text-center">What Developers Say</h3>
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-6">
+          <div class="testimonial-card animate__animated animate__fadeInLeft">
+            <div class="quote">"Found the perfect weather API in seconds. Love the look and mobile experience!"</div>
+            <div class="by"><i class="ri-user-smile-line"></i> Priya S, Frontend Dev</div>
+          </div>
+        </div>
+        <div class="col-sm-10 col-md-6">
+          <div class="testimonial-card animate__animated animate__fadeInRight" style="animation-delay:.28s;">
+            <div class="quote">"Glassmorphism, colors, and API directory—this site is a joy to browse."</div>
+            <div class="by"><i class="ri-user-heart-line"></i> Mark L, Indie Hacker</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA Section -->
+  <section class="cta-section text-center my-4 animate__animated animate__fadeInUp">
+    <div class="container">
+      <h3 class="mb-3 fw-bold">Know More Cool APIs?</h3>
+      <p>Suggest your favorite API and help others build amazing things!</p>
+      <a href="https://github.com/public-apis/public-apis#contributing" target="_blank" rel="noopener" class="btn">Contribute an API</a>
+    </div>
+  </section>
+  <!-- Contributors Section -->
+  <section class="contributors-section" id="contributors">
+    <div class="container">
+      <h3 class="mb-3 fw-bold">Contributors & Community</h3>
+      <p>Thanks to our awesome contributors! Want to join? <a href="https://github.com/public-apis/public-apis#contributing" target="_blank" rel="noopener">Contribute now</a></p>
+      <div class="contributors-list d-flex flex-wrap justify-content-center">
+        <div class="contributor-avatar m-2">
+          <a href="https://github.com/intencodeindia" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/110545403?v=4" alt="intencodeindia">
+            <span>intencodeindia</span>
+          </a>
+        </div>
+        <div class="contributor-avatar m-2">
+          <a href="https://github.com/public-apis" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/5118973?v=4" alt="public-apis">
+            <span>public-apis</span>
+          </a>
+        </div>
+        <div class="contributor-avatar m-2">
+          <a href="https://github.com/mark" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/155492?v=4" alt="mark">
+            <span>mark</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <h3 class="mb-4 fw-bold text-center">Frequently Asked Questions</h3>
+      <div class="faq-item">
+        <div class="faq-question">How do I use an API listed here?</div>
+        <div class="faq-answer">Click "Explore API" to visit the documentation and get your endpoint, then use it in your frontend, backend, or with our playground above.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Are these APIs free to use?</div>
+        <div class="faq-answer">Yes, all APIs listed here are free to use. Some may require registration or have usage limits—check their docs.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I contribute more APIs?</div>
+        <div class="faq-answer">Absolutely! Click "Contribute an API" or see the Contributors section above.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is there a limit to how many APIs I can use?</div>
+        <div class="faq-answer">No, you can use as many as you like! Each API may have its own request limits—see their docs for more info.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How can I stay updated?</div>
+        <div class="faq-answer">Sign up for our newsletter below to get notified about new APIs, tips, and features!</div>
+      </div>
+    </div>
+  </section>
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <h3 class="mb-3 fw-bold">Get the Latest APIs to Your Inbox</h3>
+      <form class="newsletter-form d-flex flex-wrap justify-content-center align-items-center" id="newsletterForm" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit"><i class="ri-mail-send-line"></i> Subscribe</button>
+      </form>
+      <div id="newsletterMsg" class="mt-2 text-success fw-semibold" style="display:none;"></div>
+    </div>
+  </section>
+  <!-- Blog/Tutorials Section -->
+  <section class="blog-section" id="blog">
+    <div class="container">
+      <h3 class="mb-4 fw-bold text-center">Recent Blog Posts & Tutorials</h3>
+      <div class="blog-card">
+        <strong>Build a Weather App in 3 Minutes</strong><br>
+        <span>Learn how to use OpenWeatherMap to make a slick weather dashboard with just HTML/JS.<br>
+        <a href="#">Read more <i class="ri-external-link-line"></i></a></span>
+      </div>
+      <div class="blog-card">
+        <strong>Using REST Countries for Global Insights</strong><br>
+        <span>Fetch beautiful country info cards in your React or Vue project!<br>
+        <a href="#">Read more <i class="ri-external-link-line"></i></a></span>
+      </div>
+      <div class="blog-card">
+        <strong>Integrate JokeAPI for Fun UIs</strong><br>
+        <span>Keep users engaged with random programming jokes... in just one GET call.<br>
+        <a href="#">Read more <i class="ri-external-link-line"></i></a></span>
+      </div>
+    </div>
+  </section>
+  <!-- Social Sharing -->
+  <div class="social-share text-center">
+    <a href="https://twitter.com/intent/tweet?text=Check+out+this+awesome+Public+APIs+Landing+Page!&url=https://yourdomain.com" target="_blank" aria-label="Share on Twitter"><i class="ri-twitter-x-line"></i></a>
+    <a href="https://www.linkedin.com/shareArticle?url=https://yourdomain.com" target="_blank" aria-label="Share on LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+    <a href="https://github.com/public-apis/public-apis" target="_blank" aria-label="Star on GitHub"><i class="ri-github-fill"></i></a>
+  </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2025 Public APIs Landing Page &mdash; Made with <span style="color: #27e27d;font-size:1.1em;">&#10084;</span> Glassmorphism & Bootstrap 5.3
+    </div>
+  </footer>
+  <!-- Back to Top -->
+  <button id="backToTopBtn" title="Back to Top" aria-label="Back to Top" tabindex="0">
+    <i class="ri-arrow-up-line"></i>
+  </button>
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Theme toggle logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      const dark = document.body.getAttribute('data-theme') !== 'light';
+      document.body.setAttribute('data-theme', dark ? 'light' : 'dark');
+      themeToggleBtn.innerHTML = dark
+        ? '<i class="ri-sun-line"></i>'
+        : '<i class="ri-moon-clear-line"></i>';
+    });
+    if (!document.body.getAttribute('data-theme')) {
+      document.body.setAttribute('data-theme', 'dark');
+    }
+    // Back to top logic
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 250 ? 'flex' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    // Nav link highlight
+    document.querySelectorAll('.glass-nav .nav-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.glass-nav .nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    // Search bar
+    const apiSearchInput = document.getElementById('apiSearchInput');
+    const apiSearchBtn = document.getElementById('apiSearchBtn');
+    const apiCardList = document.getElementById('apiCardList');
+    const searchResultHint = document.getElementById('searchResultHint');
+    apiSearchBtn.addEventListener('click', doApiSearch);
+    apiSearchInput.addEventListener('input', doApiSearch);
+    function doApiSearch(e) {
+      if (e) e.preventDefault && e.preventDefault();
+      const q = (apiSearchInput.value || '').toLowerCase().trim();
+      let showCount = 0;
+      for (const cardCol of apiCardList.children) {
+        const card = cardCol.querySelector('.api-card');
+        if (!card) continue;
+        const txt = card.innerText.toLowerCase();
+        if (!q || txt.indexOf(q) !== -1) {
+          cardCol.style.display = '';
+          showCount++;
+        } else {
+          cardCol.style.display = 'none';
+        }
+      }
+      if (q) {
+        searchResultHint.style.display = '';
+        if (showCount === 0) {
+          searchResultHint.textContent = 'No APIs matched your search.';
+        } else {
+          searchResultHint.textContent = `${showCount} API${showCount === 1 ? '' : 's'} found.`;
+        }
+      } else {
+        searchResultHint.style.display = 'none';
+      }
+    }
+    // Category Tabs Filtering
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        categoryTabs.forEach(t => t.classList.remove('selected'));
+        this.classList.add('selected');
+        const cat = this.getAttribute('data-category');
+        for (const cardCol of apiCardList.children) {
+          if (cat === 'all' || cardCol.getAttribute('data-category') === cat) {
+            cardCol.style.display = '';
+          } else {
+            cardCol.style.display = 'none';
+          }
+        }
+      });
+    });
+    // Playground logic
+    const playgroundForm = document.getElementById('playgroundForm');
+    const playgroundApi = document.getElementById('playgroundApi');
+    const playgroundInput = document.getElementById('playgroundInput');
+    const playgroundInputLabel = document.getElementById('playgroundInputLabel');
+    const playgroundResult = document.getElementById('playgroundResult');
+    playgroundApi.addEventListener('change', function() {
+      if (this.value === 'cat') {
+        playgroundInputLabel.textContent = 'Breed (optional)';
+        playgroundInput.placeholder = 'e.g. abyssinian';
+      } else if (this.value === 'country') {
+        playgroundInputLabel.textContent = 'Country Name or Code';
+        playgroundInput.placeholder = 'e.g. india or in';
+      } else if (this.value === 'joke') {
+        playgroundInputLabel.textContent = 'Category (Programming, Misc, etc)';
+        playgroundInput.placeholder = 'e.g. programming';
+      }
+    });
+    playgroundForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const api = playgroundApi.value;
+      const param = playgroundInput.value.trim();
+      playgroundResult.style.display = 'block';
+      playgroundResult.innerHTML = '<div class="text-info"><i class="ri-loader-4-line ri-spin"></i> Fetching...</div>';
+      if (api === 'cat') {
+        let url = 'https://api.thecatapi.com/v1/images/search';
+        if (param) url += '?breed_ids=' + encodeURIComponent(param);
+        fetch(url)
+          .then(r => r.json())
+          .then(res => {
+            if (Array.isArray(res) && res.length && res[0].url) {
+              playgroundResult.innerHTML = `<img src="${res[0].url}" alt="Cat" style="max-width:100%;border-radius:1.2em;box-shadow:0 2px 16px #27e27d44;margin-bottom:1em;"><br><code>${res[0].url}</code>`;
+            } else {
+              playgroundResult.innerHTML = `<span class="text-warning">No cat found for this breed.</span>`;
+            }
+          })
+          .catch(() => {playgroundResult.innerHTML = '<span class="text-danger">Request failed.</span>';});
+      } else if (api === 'country') {
+        let url = 'https://restcountries.com/v3.1/';
+        if (param) {
+          url += 'name/' + encodeURIComponent(param);
+        } else {
+          url += 'all';
+        }
+        fetch(url)
+          .then(r => r.json())
+          .then(res => {
+            if (Array.isArray(res) && res.length) {
+              const c = res[0];
+              playgroundResult.innerHTML = `<b>${c.name.common}</b><br>
+                <img src="${c.flags.svg}" style="width:60px;border-radius:0.4em;margin:0.4em;"><br>
+                <b>Region:</b> ${c.region}<br>
+                <b>Population:</b> ${c.population.toLocaleString()}<br>
+                <b>Capital:</b> ${c.capital ? c.capital[0] : '-'}<br>
+                <b>Currency:</b> ${c.currencies ? Object.values(c.currencies)[0].name : '-'}<br>
+                <b>Languages:</b> ${c.languages ? Object.values(c.languages).join(', ') : '-'}
+              `;
+            } else {
+              playgroundResult.innerHTML = `<span class="text-warning">No country found.</span>`;
+            }
+          })
+          .catch(() => {playgroundResult.innerHTML = '<span class="text-danger">Request failed.</span>';});
+      } else if (api === 'joke') {
+        let url = 'https://v2.jokeapi.dev/joke/';
+        url += param ? encodeURIComponent(param) : 'Any';
+        fetch(url)
+          .then(r => r.json())
+          .then(res => {
+            if (res.type === 'single') {
+              playgroundResult.innerHTML = `<b>Joke:</b> ${res.joke}`;
+            } else if (res.type === 'twopart') {
+              playgroundResult.innerHTML = `<b>Setup:</b> ${res.setup}<br><b>Punchline:</b> ${res.delivery}`;
+            } else {
+              playgroundResult.innerHTML = `<span class="text-warning">No joke found.</span>`;
+            }
+          })
+          .catch(() => {playgroundResult.innerHTML = '<span class="text-danger">Request failed.</span>';});
+      }
+    });
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', function() {
+        const ans = this.nextElementSibling;
+        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+    // Newsletter form
+    document.getElementById('newsletterForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('newsletterMsg').style.display = 'block';
+      document.getElementById('newsletterMsg').innerHTML = '<i class="ri-checkbox-circle-line"></i> Thank you for subscribing!';
+      setTimeout(()=>{document.getElementById('newsletterMsg').style.display='none';}, 4000);
+      this.reset();
+    });
+  </script>
+</body>
+</html>

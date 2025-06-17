@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centered Certificate</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background: #e0e0e0;
+      font-family: 'Georgia', serif;
+    }
+
+    .button-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .certificate-wrapper {
+      width: 1200px;
+      height: 850px;
+      transform-origin: top left;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: scale(1) translate(-50%, -50%);
+    }
+
+    .certificate {
+      width: 1200px;
+      height: 850px;
+      background-color: #fff;
+      border: 20px solid gold;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .inner-border {
+      border: 6px dashed #c4a300;
+      height: 100%;
+      width: 100%;
+      padding: 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #333;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .recipient {
+      text-align: center;
+      font-size: 36px;
+      margin: 10px 0;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .course-name {
+      text-align: center;
+      font-size: 26px;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .date {
+      text-align: center;
+      font-size: 20px;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    .info-section {
+      position: absolute;
+      bottom: 140px;
+      left: 50px;
+      right: 50px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .info-section div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-section span.label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .signatures {
+      position: absolute;
+      bottom: 60px;
+      left: 60px;
+      right: 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .signature {
+      text-align: center;
+    }
+
+    .signature-line {
+      border-top: 2px solid #000;
+      width: 200px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button onclick="downloadCertificate()">Download Certificate</button>
+  </div>
+
+  <div class="certificate-wrapper" id="certificateWrapper">
+    <div class="certificate" id="certificate">
+      <div class="inner-border">
+
+        <!-- Main Certificate Content -->
+        <div class="title">Certificate of Completion</div>
+        <div class="subtitle">This certifies that</div>
+        <div class="recipient">John Doe</div>
+        <div class="subtitle">has successfully completed the course</div>
+        <div class="course-name">"Advanced Software Architecture"</div>
+        <div class="date">Awarded on June 17, 2025</div>
+
+        <!-- Certificate Info (Below Date, Above Signatures) -->
+        <div class="info-section">
+          <div>
+            <span class="label">Certificate ID:</span>
+            <span>#CERT-2025-0001</span>
+          </div>
+          <div>
+            <span class="label">Issued On:</span>
+            <span>June 17, 2025</span>
+          </div>
+          <div>
+            <span class="label">Valid Until:</span>
+            <span>June 17, 2030</span>
+          </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+          <div class="signature">
+            <div class="signature-line"></div>
+            Instructor
+          </div>
+          <div class="signature">
+            <div class="signature-line"></div>
+            Program Director
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scaleCertificate() {
+      const wrapper = document.getElementById('certificateWrapper');
+      const certWidth = 1200;
+      const certHeight = 850;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const scale = Math.min(vw / certWidth, vh / certHeight);
+      wrapper.style.transform = `scale(${scale}) translate(-50%, -50%)`;
+    }
+
+    function downloadCertificate() {
+      const certificate = document.getElementById('certificate');
+      html2canvas(certificate, {
+        scale: 2,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'certificate.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    window.addEventListener('resize', scaleCertificate);
+    window.addEventListener('load', scaleCertificate);
+  </script>
+</body>
+</html>

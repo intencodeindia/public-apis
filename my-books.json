@@ -1,122 +1,222 @@
 [
   {
-    "title": "Deep Work: Rules for Focused Success in a Distracted World",
-    "bought_date": "2023-10-15",
-    "book_url": "https://archive.org/details/deep-work-rules-for-focused-success-in-a-distracted-world_202010/page/n7/mode/2up",
-    "others": {"id":1,"author":"Cal Newport","genre":"Self-Help","rating":4.6}
+    "title": "Pride and Prejudice",
+    "bought_date": "2025-06-01",
+    "epub_url": "https://archive.org/download/prideandprejudice_201908/prideandprejudice.epub",
+    "thumbnail_url": "https://archive.org/services/img/prideandprejudice_201908",
+    "others": {
+      "author": "Jane Austen",
+      "genre": "Classic Literature",
+      "rating": 4.7
+    }
   },
   {
-    "title": "The Magic of Thinking Big",
-    "bought_date": "2023-12-01",
-    "book_url": "https://archive.org/details/MagicOfThinking/page/n45/mode/2up",
-    "others": {"id":2,"author":"David J. Schwartz","genre":"Self-Help","rating":4.4}
+    "title": "Moby Dick; Or, The Whale",
+    "bought_date": "2025-06-05",
+    "epub_url": "https://archive.org/download/mobydickorwhale_202103/mobydick.epub",
+    "thumbnail_url": "https://archive.org/services/img/mobydickorwhale_202103",
+    "others": {
+      "author": "Herman Melville",
+      "genre": "Adventure",
+      "rating": 4.2
+    }
   },
   {
-    "title": "Awaken the Giant Within",
-    "bought_date": "2023-11-20",
-    "book_url": "https://archive.org/details/AwakenTheGiantWithin/page/n105/mode/2up",
-    "others": {"id":3,"author":"Tony Robbins","genre":"Self-Help","rating":4.5}
+    "title": "Alice's Adventures in Wonderland",
+    "bought_date": "2025-06-08",
+    "epub_url": "https://archive.org/download/alicesadventuresin00carrrich/alicesadventures.epub",
+    "thumbnail_url": "https://archive.org/services/img/alicesadventuresin00carrrich",
+    "others": {
+      "author": "Lewis Carroll",
+      "genre": "Fantasy",
+      "rating": 4.5
+    }
   },
   {
-    "title": "Can't Hurt Me: Master Your Mind and Defy the Odds",
-    "bought_date": "2024-01-05",
-    "book_url": "https://archive.org/details/cant-hurt-me-master-your-mind-and-defy-the-odds_202301/page/n119/mode/2up",
-    "others": {"id":4,"author":"David Goggins","genre":"Memoir","rating":4.7}
+    "title": "The Adventures of Sherlock Holmes",
+    "bought_date": "2025-06-10",
+    "epub_url": "https://archive.org/download/adventuresofsherl00doyl_1/adventuresofsherl.epub",
+    "thumbnail_url": "https://archive.org/services/img/adventuresofsherl00doyl_1",
+    "others": {
+      "author": "Arthur Conan Doyle",
+      "genre": "Mystery",
+      "rating": 4.8
+    }
   },
   {
-    "title": "Law of Success (21st Century Edition)",
-    "bought_date": "2024-02-10",
-    "book_url": "https://archive.org/details/lawofsuccess21stcenturyeditionpdfdrive.com/page/n15/mode/2up",
-    "others": {"id":5,"author":"Napoleon Hill","genre":"Self-Help","rating":4.2}
+    "title": "Frankenstein; Or, The Modern Prometheus",
+    "bought_date": "2025-06-12",
+    "epub_url": "https://archive.org/download/frankenstein_201909/frankenstein.epub",
+    "thumbnail_url": "https://archive.org/services/img/frankenstein_201909",
+    "others": {
+      "author": "Mary Wollstonecraft Shelley",
+      "genre": "Gothic Fiction",
+      "rating": 4.3
+    }
   },
   {
-    "title": "100 Ways to Motivate Yourself",
-    "bought_date": "2023-09-30",
-    "book_url": "https://archive.org/details/100-ways-to-motivate-yourself-by-steve-chandler/page/24/mode/1up",
-    "others": {"id":6,"author":"Steve Chandler","genre":"Self-Help","rating":4.1}
+    "title": "Dracula",
+    "bought_date": "2025-06-15",
+    "epub_url": "https://archive.org/download/dracula_201907/dracula.epub",
+    "thumbnail_url": "https://archive.org/services/img/dracula_201907",
+    "others": {
+      "author": "Bram Stoker",
+      "genre": "Horror",
+      "rating": 4.4
+    }
   },
   {
-    "title": "How to Stop Worrying and Start Living",
-    "bought_date": "2023-08-25",
-    "book_url": "https://archive.org/details/how-to-stop-worrying-and-start-living/page/84/mode/2up",
-    "others": {"id":7,"author":"Dale Carnegie","genre":"Self-Help","rating":4.3}
+    "title": "The Picture of Dorian Gray",
+    "bought_date": "2025-06-18",
+    "epub_url": "https://archive.org/download/pictureofdoriang00wildrich/pictureofdoriang.epub",
+    "thumbnail_url": "https://archive.org/services/img/pictureofdoriang00wildrich",
+    "others": {
+      "author": "Oscar Wilde",
+      "genre": "Philosophical Fiction",
+      "rating": 4.1
+    }
   },
   {
-    "title": "Tarikh al-Wilayat al-Muttahida",
-    "bought_date": "2024-04-12",
-    "book_url": "https://archive.org/download/tarikhalwilayata008800/tarikhalwilayata008800.pdf",
-    "others": {"id":8,"author":"Anonymous","genre":"History","rating":3.8}
+    "title": "The War of the Worlds",
+    "bought_date": "2025-06-20",
+    "epub_url": "https://archive.org/download/warworlds00wells_0/warworlds.epub",
+    "thumbnail_url": "https://archive.org/services/img/warworlds00wells_0",
+    "others": {
+      "author": "H.G. Wells",
+      "genre": "Science Fiction",
+      "rating": 4.2
+    }
   },
   {
-    "title": "Union list of serials in libraries of the United States and Canada (Vol U-Z)",
-    "bought_date": "2024-03-05",
-    "book_url": "https://archive.org/download/unionlistofseria00greg11/unionlistofseria00greg11.pdf",
-    "others": {"id":9,"author":"Gregory","genre":"Reference","rating":3.9}
+    "title": "The Call of the Wild",
+    "bought_date": "2025-06-22",
+    "epub_url": "https://archive.org/download/callofthewild00londrich/callofthewild.epub",
+    "thumbnail_url": "https://archive.org/services/img/callofthewild00londrich",
+    "others": {
+      "author": "Jack London",
+      "genre": "Adventure",
+      "rating": 4.0
+    }
   },
   {
-    "title": "Der mittelenglische Versroman über Richard Löwenherz",
-    "bought_date": "2023-11-18",
-    "book_url": "https://archive.org/download/dermittelenglisc00brun/dermittelenglisc00brun.pdf",
-    "others": {"id":10,"author":"Brunner","genre":"Medieval Literature","rating":4.0}
+    "title": "Treasure Island",
+    "bought_date": "2025-06-25",
+    "epub_url": "https://archive.org/download/treasureisland00stev_0/treasureisland.epub",
+    "thumbnail_url": "https://archive.org/services/img/treasureisland00stev_0",
+    "others": {
+      "author": "Robert Louis Stevenson",
+      "genre": "Adventure",
+      "rating": 4.3
+    }
   },
   {
-    "title": "A System of Magic",
-    "bought_date": "2024-06-02",
-    "book_url": "https://archive.org/download/systemofmagic00defo/systemofmagic00defo.pdf",
-    "others": {"id":11,"author":"De Fo","genre":"Fantasy","rating":3.7}
+    "title": "Little Women",
+    "bought_date": "2025-06-27",
+    "epub_url": "https://archive.org/download/littlewomen00alcogoog/littlewomen.epub",
+    "thumbnail_url": "https://archive.org/services/img/littlewomen00alcogoog",
+    "others": {
+      "author": "Louisa May Alcott",
+      "genre": "Coming-of-age",
+      "rating": 4.6
+    }
   },
   {
-    "title": "A Picturesque Tour of the Island of Jamaica",
-    "bought_date": "2024-02-22",
-    "book_url": "https://archive.org/download/picturesquetouro00hake/picturesquetouro00hake.pdf",
-    "others": {"id":12,"author":"Hake","genre":"Travel","rating":4.1}
+    "title": "The Wonderful Wizard of Oz",
+    "bought_date": "2025-06-30",
+    "epub_url": "https://archive.org/download/wonderfulwizardo00baumiala/wonderfulwizardo.epub",
+    "thumbnail_url": "https://archive.org/services/img/wonderfulwizardo00baumiala",
+    "others": {
+      "author": "L. Frank Baum",
+      "genre": "Fantasy",
+      "rating": 4.2
+    }
   },
   {
-    "title": "Ancient Accounts of India and China",
-    "bought_date": "2023-12-15",
-    "book_url": "https://archive.org/download/ancientaccountso00sira/ancientaccountso00sira.pdf",
-    "others": {"id":13,"author":"Sira","genre":"History","rating":4.0}
+    "title": "Dr. Jekyll and Mr. Hyde",
+    "bought_date": "2025-07-01",
+    "epub_url": "https://archive.org/download/doctorjekyllmrhy00stevuoft/doctorjekyllmrhy.epub",
+    "thumbnail_url": "https://archive.org/services/img/doctorjekyllmrhy00stevuoft",
+    "others": {
+      "author": "Robert Louis Stevenson",
+      "genre": "Horror",
+      "rating": 4.1
+    }
   },
   {
-    "title": "A Brief Summary of Laws Concerning Women",
-    "bought_date": "2024-05-10",
-    "book_url": "https://archive.org/download/briefsummaryinpl00smit/briefsummaryinpl00smit.pdf",
-    "others": {"id":14,"author":"Smit","genre":"Law","rating":3.9}
+    "title": "A Tale of Two Cities",
+    "bought_date": "2025-07-03",
+    "epub_url": "https://archive.org/download/taleoftwocities00dickiala/taleoftwocities.epub",
+    "thumbnail_url": "https://archive.org/services/img/taleoftwocities00dickiala",
+    "others": {
+      "author": "Charles Dickens",
+      "genre": "Historical Fiction",
+      "rating": 4.4
+    }
   },
   {
-    "title": "The Art of Perfumery",
-    "bought_date": "2024-03-20",
-    "book_url": "https://archive.org/download/artofperfumeryme00pies/artofperfumeryme00pies.pdf",
-    "others": {"id":15,"author":"Pies","genre":"DIY","rating":3.8}
+    "title": "The Secret Garden",
+    "bought_date": "2025-07-05",
+    "epub_url": "https://archive.org/download/secretgarden00burniala/secretgarden.epub",
+    "thumbnail_url": "https://archive.org/services/img/secretgarden00burniala",
+    "others": {
+      "author": "Frances Hodgson Burnett",
+      "genre": "Children's Literature",
+      "rating": 4.3
+    }
   },
   {
-    "title": "Verses of a V.A.D.",
-    "bought_date": "2024-04-07",
-    "book_url": "https://archive.org/download/versesofvad00brit/versesofvad00brit.pdf",
-    "others": {"id":16,"author":"Brit","genre":"Poetry","rating":4.0}
+    "title": "The Jungle Book",
+    "bought_date": "2025-07-07",
+    "epub_url": "https://archive.org/download/junglebook00kipluoft/junglebook.epub",
+    "thumbnail_url": "https://archive.org/services/img/junglebook00kipluoft",
+    "others": {
+      "author": "Rudyard Kipling",
+      "genre": "Children's Literature",
+      "rating": 4.2
+    }
   },
   {
-    "title": "Pandnama by Sheikh Fareed",
-    "bought_date": "2023-10-05",
-    "book_url": "https://archive.org/details/KRI181PandnamaUrduSheikhFareedAllaudinAbal",
-    "others": {"id":17,"author":"Sheikh Fareed","genre":"Urdu Literature","rating":4.2}
+    "title": "Sense and Sensibility",
+    "bought_date": "2025-07-08",
+    "epub_url": "https://archive.org/download/senseandsensibilit00austuoft/senseandsensibilit.epub",
+    "thumbnail_url": "https://archive.org/services/img/senseandsensibilit00austuoft",
+    "others": {
+      "author": "Jane Austen",
+      "genre": "Classic Literature",
+      "rating": 4.4
+    }
   },
   {
-    "title": "Rati Sastram or The Hindu System Of Sexual Science",
-    "bought_date": "2024-01-25",
-    "book_url": "https://archive.org/details/KRI112RatiSastramOrTheHinduSystemOfSexualScience1921CalcuttaAbinashChandraGhose",
-    "others": {"id":18,"author":"A. C. Ghose","genre":"Ancient Science","rating":3.7}
+    "title": "Emma",
+    "bought_date": "2025-07-09",
+    "epub_url": "https://archive.org/download/emma00austuoft/emma.epub",
+    "thumbnail_url": "https://archive.org/services/img/emma00austuoft",
+    "others": {
+      "author": "Jane Austen",
+      "genre": "Classic Literature",
+      "rating": 4.5
+    }
   },
   {
-    "title": "1884 Edition of Mahabharata Adi Parva",
-    "bought_date": "2023-09-18",
-    "book_url": "https://archive.org/details/KRI221MahabharatAdiParvaCalcutta1884PratapChandraRai",
-    "others": {"id":19,"author":"Pratap Chandra Rai","genre":"Epic","rating":4.3}
+    "title": "Gulliver's Travels",
+    "bought_date": "2025-07-10",
+    "epub_url": "https://archive.org/download/gulliverstravels00johnuoft/gulliverstravels.epub",
+    "thumbnail_url": "https://archive.org/services/img/gulliverstravels00johnuoft",
+    "others": {
+      "author": "Jonathan Swift",
+      "genre": "Satire",
+      "rating": 4.0
+    }
   },
   {
-    "title": "The Life And Words Of Christ (1882)",
-    "bought_date": "2024-06-18",
-    "book_url": "https://archive.org/details/KRI125TheLifeAndWordsOfChrist1883CunninghamGeikie",
-    "others": {"id":20,"author":"Cunningham Geikie","genre":"Religion","rating":4.0}
+    "title": "The Time Machine",
+    "bought_date": "2025-07-11",
+    "epub_url": "https://archive.org/download/timemachine00welluoft/timemachine.epub",
+    "thumbnail_url": "https://archive.org/services/img/timemachine00welluoft",
+    "others": {
+      "author": "H.G. Wells",
+      "genre": "Science Fiction",
+      "rating": 4.1
+    }
   }
 ]

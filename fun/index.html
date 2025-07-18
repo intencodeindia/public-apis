@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Just I Am So – Your Best Listener</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1520975922071-c2a3d2e76e6d?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      font-family: 'Open Sans', sans-serif;
+      color: #2d2d2d;
+      scroll-behavior: smooth;
+    }
+
+    /* Dark overlay for contrast */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    /* Glassmorphism style */
+    .glass {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 2.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(0, 0, 0, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+    .navbar-brand {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      color: #fff !important;
+    }
+    .nav-link {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff !important;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #a3bffa !important;
+    }
+    .dropdown-menu {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 10px;
+      border: none;
+    }
+    .dropdown-item {
+      font-weight: 600;
+      color: #2d2d2d;
+    }
+    .dropdown-item:hover {
+      background: rgba(79, 70, 229, 0.1);
+      color: #4f46e5;
+    }
+
+    /* Buttons */
+    .btn-glass {
+      background: rgba(79, 70, 229, 0.15);
+      color: #4f46e5;
+      border: 2px solid rgba(79, 70, 229, 0.4);
+      border-radius: 12px;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      transition: all 0.3s ease;
+    }
+    .btn-glass:hover {
+      background: #4f46e5;
+      color: #fff;
+      border-color: #4f46e5;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.5);
+    }
+    .btn-primary {
+      background: #4f46e5;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #4338ca;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, 0.5);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      color: #2d2d2d !important;
+    }
+    p, a, .lang {
+      font-family: 'Open Sans', sans-serif;
+      color: #2d2d2d !important;
+    }
+    .display-4 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    .lead {
+      font-size: 1.25rem;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Session Cards */
+    .session-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .session-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 3rem 0;
+    }
+    footer a {
+      color: #a3bffa !important;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #4f46e5 !important;
+    }
+
+    /* Contact Form */
+    .form-control {
+      border-radius: 10px;
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      background: rgba(255, 255, 255, 0.95);
+    }
+    .form-control:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .glass {
+        padding: 1.5rem !important;
+      }
+      .navbar-brand {
+        font-size: 1.6rem;
+      }
+      .display-4 {
+        font-size: 2.5rem;
+      }
+      .btn-lg {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+      .nav-link {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+      }
+      .session-card {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Just I Am So</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#nav"
+        aria-controls="nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link lang" data-key="about" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link lang" data-key="services" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link lang" data-key="contact" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >EN</a
+            >
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item lang-select" data-lang="en">English</a></li>
+              <li><a class="dropdown-item lang-select" data-lang="hi">हिंदी</a></li>
+              <li><a class="dropdown-item lang-select" data-lang="mr">मराठी</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="vh-100 d-flex align-items-center text-center fade-in" style="padding-top: 5rem; padding-bottom: 5rem">
+    <div class="container">
+      <div class="glass p-5 mx-auto" style="max-width: 800px;">
+        <h1 class="display-4 fw-bold lang" data-key="title">Just I Am So</h1>
+        <p class="lead lang" data-key="subtitle">
+          Your Safe Space for Heartfelt Conversations
+        </p>
+        <span id="currency-rate" class="mb-4 d-block fw-semibold"></span>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#services" class="btn btn-glass btn-lg lang" data-key="explore">Explore Sessions</a>
+          <a href="#contact" class="btn btn-primary btn-lg lang" data-key="book">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5 fade-in">
+    <div class="container">
+      <div class="glass p-5 mx-auto" style="max-width: 1000px;">
+        <h2 class="lang text-center mb-4" data-key="about-title">About Me</h2>
+        <div class="row align-items-center">
+          <div class="col-md-3 text-center">
+            <img
+              src="https://via.placeholder.com/150"
+              alt="Profile"
+              class="rounded-circle mb-3"
+              style="width: 150px; height: 150px;"
+            />
+          </div>
+          <div class="col-md-9">
+            <p class="lead lang text-center text-md-start" data-key="about-text">
+              I’m your go-to listener, here to provide a safe, judgment-free space for you to share your thoughts and feelings. With years of experience listening to people from all walks of life, I bring empathy, patience, and understanding to every conversation. Trust me to be the best listener you’ll ever meet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5 fade-in">
+    <div class="container">
+      <div class="glass p-5 mx-auto" style="max-width: 1000px;">
+        <h2 class="text-center mb-5 lang" data-key="services-title">Listening Sessions</h2>
+        <div id="session-cards" class="row g-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 fade-in">
+    <div class="container">
+      <div class="glass p-5 mx-auto" style="max-width: 700px;">
+        <h2 class="lang text-center mb-4" data-key="contact-title">Get in Touch</h2>
+        <p class="lang text-center mb-4" data-key="contact-sub">
+          Message “Real Talk” for up to 40% off your first session!
+        </p>
+        <div class="mb-4">
+          <input type="text" class="form-control mb-3" placeholder="Your Name" />
+          <input type="email" class="form-control mb-3" placeholder="Your Email" />
+          <textarea class="form-control mb-3" rows="4" placeholder="Your Message"></textarea>
+          <button class="btn btn-primary btn-lg w-100">Send Message</button>
+        </div>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="https://wa.me/your-number" target="_blank" rel="noopener" class="btn btn-success btn-lg lang" data-key="whatsapp">
+            <i class="fab fa-whatsapp me-2"></i>WhatsApp
+          </a>
+          <a href="mailto:your-email@example.com" class="btn btn-outline-dark btn-lg lang" data-key="email">
+            <i class="fas fa-envelope me-2"></i>Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5 class="text-white">Quick Links</h5>
+          <a href="#about" class="lang" data-key="about">About</a><br />
+          <a href="#services" class="lang" data-key="services">Services</a><br />
+          <a href="#contact" class="lang" data-key="contact">Contact</a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="text-white">Connect</h5>
+          <a href="https://twitter.com/your-profile" target="_blank" rel="noopener"><i class="fab fa-twitter me-2"></i>Twitter</a><br />
+          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5 class="text-white">Contact</h5>
+          <p class="text-white mb-0">Email: <a href="mailto:your-email@example.com" class="text-white">your-email@example.com</a></p>
+          <p class="text-white mb-0">Phone: <a href="tel:+1234567890" class="text-white">+1 (234) 567-890</a></p>
+        </div>
+      </div>
+      <small class="text-white lang d-block mt-4" data-key="footer">© 2025 Just I Am So. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Translations
+      const translations = {
+        en: {
+          about: "About",
+          services: "Services",
+          contact: "Contact",
+          title: "Just I Am So",
+          subtitle: "Your Safe Space for Heartfelt Conversations",
+          explore: "Explore Sessions",
+          book: "Book Now",
+          "about-title": "About Me",
+          "about-text": "I’m your go-to listener, here to provide a safe, judgment-free space for you to share your thoughts and feelings. With years of experience listening to people from all walks of life, I bring empathy, patience, and understanding to every conversation. Trust me to be the best listener you’ll ever meet.",
+          "services-title": "Listening Sessions",
+          family: "Family Matters",
+          breakup: "Breakup Support",
+          career: "Career Guidance",
+          cry: "Emotional Support",
+          "2am": "Late Night Chats",
+          alone: "Feeling Understood",
+          "contact-title": "Get in Touch",
+          "contact-sub": "Message 'Real Talk' for up to 40% off your first session!",
+          whatsapp: "Chat on WhatsApp",
+          email: "Email Me",
+          footer: "© 2025 Just I Am So. All rights reserved.",
+        },
+        hi: {
+          about: "के बारे में",
+          services: "सेवाएँ",
+          contact: "संपर्क",
+          title: "Just I Am So",
+          subtitle: "आपके लिए एक सुरक्षित स्थान",
+          explore: "सत्र देखें",
+          book: "अभी बुक करें",
+          "about-title": "मेरे बारे में",
+          "about-text": "मैं आपका विश्वसनीय श्रोता हूँ, जो आपके विचारों और भावनाओं को बिना किसी निर्णय के सुनने के लिए यहाँ है। विभिन्न पृष्ठभूमियों के लोगों को सुनने के वर्षों के अनुभव के साथ, मैं हर बातचीत में सहानुभूति, धैर्य और समझ लाता हूँ। मुझ पर भरोसा करें, मैं आपका सबसे अच्छा श्रोता हूँ।",
+          "services-title": "सुनने के सत्र",
+          family: "पारिवारिक बातें",
+          breakup: "ब्रेकअप सहायता",
+          career: "कैरियर मार्गदर्शन",
+          cry: "भावनात्मक समर्थन",
+          "2am": "देर रात की बातें",
+          alone: "समझा जाना",
+          "contact-title": "संपर्क करें",
+          "contact-sub": "पहले सत्र पर 40% तक की छूट के लिए 'Real Talk' मैसेज करें!",
+          whatsapp: "WhatsApp पर चैट करें",
+          email: "मुझे ईमेल करें",
+          footer: "© 2025 Just I Am So। सर्वाधिकार सुरक्षित।",
+        },
+        mr: {
+          about: "माहितीसाठी",
+          services: "सेवा",
+          contact: "संपर्क",
+          title: "Just I Am So",
+          subtitle: "तुमच्यासाठी सुरक्षित जागा",
+          explore: "सेवा पहा",
+          book: "आता बुक करा",
+          "about-title": "माझ्याबद्दल",
+          "about-text": "मी तुमचा विश्वासू श्रोता आहे, तुमच्या विचार आणि भावना कोणत्याही निर्णयाशिवाय ऐकण्यासाठी येथे आहे. विविध पार्श्वभूमीच्या लोकांना ऐकण्याचा अनेक वर्षांचा अनुभव घेऊन, मी प्रत्येक संभाषणात सहानुभूती, संयम आणि समज आणतो. माझ्यावर विश्वास ठेवा, मी तुमचा सर्वोत्तम श्रोता आहे.",
+          "services-title": "ऐकण्याचे सत्र",
+          family: "कुटुंब चर्चा",
+          breakup: "ब्रेकअप समर्थन",
+          career: "करिअर मार्गदर्शन",
+          cry: "भावनिक आधार",
+          "2am": "रात्रीच्या गप्पा",
+          alone: "समजून घेतले जाणे",
+          "contact-title": "संपर्क साधा",
+          "contact-sub": "पहिल्या सत्रावर 40% पर्यंत सूटसाठी 'Real Talk' संदेश पाठवा!",
+          whatsapp: "WhatsApp वर संभाषण",
+          email: "मला ईमेल करा",
+          footer: "© 2025 Just I Am So। सर्व हक्क राखीव।",
+        },
+      };
+
+      // Session definitions
+      const sessions = [
+        { key: "family", pri: 199 },
+        { key: "breakup", pri: 299 },
+        { key: "career", pri: 499 },
+        { key: "cry", pri: 899 },
+        { key: "2am", pri: 999 },
+        { key: "alone", pri: 1499 },
+      ];
+
+      let userLang = "en", rate = 1, cur = "INR";
+
+      // Update language elements
+      const langEls = document.querySelectorAll(".lang");
+      function applyLang() {
+        langEls.forEach((el) => {
+          const key = el.dataset.key;
+          if (translations[userLang][key]) {
+            el.textContent = translations[userLang][key];
+          }
+        });
+        renderSessions();
+        updateDropdownLang();
+      }
+
+      // Render session cards
+      function renderSessions() {
+        const cont = document.getElementById("session-cards");
+        if (!cont) return;
+        cont.innerHTML = "";
+        sessions.forEach((s) => {
+          const priceLocal = (s.pri * rate).toFixed(2);
+          const title = translations[userLang][s.key] || s.key;
+          cont.innerHTML += `
+            <div class="col-md-4 col-sm-6">
+              <div class="glass p-4 h-100 text-center session-card d-flex flex-column justify-content-between">
+                <h5 class="mb-3">${title}</h5>
+                <p class="fs-5 fw-semibold mb-3">${priceLocal} ${cur}</p>
+                <button class="btn btn-glass mt-auto">${translations[userLang].book}</button>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // Update dropdown language
+      function updateDropdownLang() {
+        const dropdownToggle = document.querySelector(".nav-item.dropdown > a.nav-link.dropdown-toggle");
+        if (!dropdownToggle) return;
+        const langNames = { en: "English", hi: "हिंदी", mr: "मराठी" };
+        dropdownToggle.textContent = langNames[userLang] || "English";
+      }
+
+      // Language switch handlers
+      document.querySelectorAll(".lang-select").forEach((el) => {
+        el.addEventListener("click", () => {
+          userLang = el.dataset.lang || "en";
+          applyLang();
+        });
+      });
+
+      // Fetch currency and exchange rate
+      fetch("https://ipapi.co/json/")
+        .then((r) => {
+          if (!r.ok) throw new Error("IP API failed");
+          return r.json();
+        })
+        .then((data) => {
+          cur = data.currency || "INR";
+          document.getElementById("currency-rate").textContent = `Rates shown in ${cur}`;
+          return fetch(`https://api.exchangerate.host/latest?base=INR&symbols=${cur}`);
+        })
+        .then((r) => {
+          if (!r.ok) throw new Error("Exchange rate API failed");
+          return r.json();
+        })
+        .then((data) => {
+          rate = data.rates && data.rates[cur] ? data.rates[cur] : 1;
+          renderSessions();
+        })
+        .catch((error) => {
+          console.error("API fetch error:", error);
+          rate = 1;
+          cur = "INR";
+          document.getElementById("currency-rate").textContent = "Rates shown in INR (fallback)";
+          renderSessions();
+        });
+
+      // Initial render
+      applyLang();
+    });
+  </script>
+</body>
+</html>

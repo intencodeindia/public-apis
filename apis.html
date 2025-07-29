@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Documentation - Family Members & Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .endpoint {
+            background: #fff;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .method {
+            font-weight: bold;
+            color: #007bff;
+        }
+        code {
+            background: #f1f1f1;
+            padding: 2px 4px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f1f1f1;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>API Documentation</h1>
+    <p><strong>Base URL:</strong> <code>/api</code></p>
+
+    <h2>🔹 Family Members API</h2>
+
+    <div class="endpoint">
+        <div><span class="method">GET</span> /family-members/{user_id}</div>
+        <p>Fetch all family members for a specific user.</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">POST</span> /family-members/{user_id}</div>
+        <p>Create a new family member.</p>
+        <pre>{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "9876543210",
+  "country_code": "+91",
+  "relation": "Brother",
+  "photo": "[File Upload - Optional]"
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">GET</span> /family-members/{user_id}/{id}</div>
+        <p>Get a specific family member's details.</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">PUT</span> /family-members/{user_id}/{id}</div>
+        <p>Update a family member.</p>
+        <pre>{
+  "name": "John D.",
+  "email": "john.d@example.com",
+  "phone": "9876543211",
+  "country_code": "+91",
+  "relation": "Cousin",
+  "photo": "[File Upload - Optional]"
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">DELETE</span> /family-members/{user_id}/{id}</div>
+        <p>Delete a family member.</p>
+    </div>
+
+    <h2>🔹 Documents API</h2>
+
+    <div class="endpoint">
+        <div><span class="method">GET</span> /documents/{user_id}</div>
+        <p>List all documents uploaded by a specific user.</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">POST</span> /documents/{user_id}</div>
+        <p>Upload a new document.</p>
+        <pre>{
+  "document": "[File Upload - Required]",
+  "documentId": "doc123",
+  "name": "Passport",
+  "document_type": "ID Proof",
+  "expiry_date": "2025-12-31",
+  "additional_info": "Scanned copy of passport",
+  "family_member_id": 2
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">GET</span> /documents/{user_id}/{id}</div>
+        <p>View details of a specific document.</p>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">PUT</span> /documents/{user_id}/{id}</div>
+        <p>Update a document.</p>
+        <pre>{
+  "document": "[File Upload - Optional]",
+  "documentId": "doc123",
+  "name": "Updated Passport",
+  "document_type": "ID Proof",
+  "expiry_date": "2026-12-31",
+  "additional_info": "Renewed copy",
+  "family_member_id": 2
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <div><span class="method">DELETE</span> /documents/{user_id}/{id}</div>
+        <p>Delete a document.</p>
+    </div>
+
+    <hr>
+    <p><strong>Note:</strong> All endpoints require <code>apiKeyAuth</code> middleware. For file uploads, use <code>multipart/form-data</code>.</p>
+
+</body>
+</html>

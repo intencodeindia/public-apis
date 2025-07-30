@@ -46,7 +46,7 @@
 
     <div class="endpoint">
         <div><span class="method">GET</span> /family-members/{user_id}</div>
-        <p>Fetch all family members for a specific user.</p>
+        <p>Fetch all family members for a specific user (employee).</p>
     </div>
 
     <div class="endpoint">
@@ -56,9 +56,11 @@
   "name": "John Doe",
   "email": "john@example.com",
   "phone": "9876543210",
-  "country_code": "+91",
-  "relation": "Brother",
-  "photo": "[File Upload - Optional]"
+  "relationship": "Brother",
+  "gender": "Male",
+  "nationality": "Indian",
+  "nationality_proof": "[File Upload - Optional]",
+  "profile_photo": "[File Upload - Optional]"
 }</pre>
     </div>
 
@@ -74,9 +76,11 @@
   "name": "John D.",
   "email": "john.d@example.com",
   "phone": "9876543211",
-  "country_code": "+91",
-  "relation": "Cousin",
-  "photo": "[File Upload - Optional]"
+  "relationship": "Cousin",
+  "gender": "Male",
+  "nationality": "Indian",
+  "nationality_proof": "[File Upload - Optional]",
+  "profile_photo": "[File Upload - Optional]"
 }</pre>
     </div>
 
@@ -89,7 +93,7 @@
 
     <div class="endpoint">
         <div><span class="method">GET</span> /documents/{user_id}</div>
-        <p>List all documents uploaded by a specific user.</p>
+        <p>List all documents uploaded by a specific employee.</p>
     </div>
 
     <div class="endpoint">
@@ -100,6 +104,9 @@
   "documentId": "doc123",
   "name": "Passport",
   "document_type": "ID Proof",
+  "issue_date": "2023-05-01",
+  "issue_place": "Delhi",
+  "visa_provider": "XYZ Travels",
   "expiry_date": "2025-12-31",
   "additional_info": "Scanned copy of passport",
   "family_member_id": 2
@@ -119,6 +126,9 @@
   "documentId": "doc123",
   "name": "Updated Passport",
   "document_type": "ID Proof",
+  "issue_date": "2024-06-01",
+  "issue_place": "Mumbai",
+  "visa_provider": "ABC Tours",
   "expiry_date": "2026-12-31",
   "additional_info": "Renewed copy",
   "family_member_id": 2

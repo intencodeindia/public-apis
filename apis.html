@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>API Documentation - Family Members & Documents</title>
+    <title>API Documentation - Family Members, Documents & Leave</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,109 +39,116 @@
 </head>
 <body>
 
-    <h1>API Documentation</h1>
-    <p><strong>Base URL:</strong> <code>/api</code></p>
+<h1>API Documentation</h1>
+<p><strong>Base URL:</strong> <code>/api</code></p>
 
-    <h2>🔹 Family Members API</h2>
+<h2>🔹 Family Members API</h2>
 
-    <div class="endpoint">
-        <div><span class="method">GET</span> /family-members/{user_id}</div>
-        <p>Fetch all family members for a specific user (employee).</p>
-    </div>
+<div class="endpoint">
+    <div><span class="method">GET</span> /family-members/{user_id}</div>
+    <p>Fetch all family members for a specific user.</p>
+</div>
 
-    <div class="endpoint">
-        <div><span class="method">POST</span> /family-members/{user_id}</div>
-        <p>Create a new family member.</p>
-        <pre>{
+<div class="endpoint">
+    <div><span class="method">POST</span> /family-members/{user_id}</div>
+    <p>Create a new family member.</p>
+    <pre>{
   "name": "John Doe",
   "email": "john@example.com",
   "phone": "9876543210",
-  "relationship": "Brother",
   "gender": "Male",
+  "relationship": "Brother",
   "nationality": "Indian",
   "nationality_proof": "[File Upload - Optional]",
   "profile_photo": "[File Upload - Optional]"
 }</pre>
-    </div>
+</div>
 
-    <div class="endpoint">
-        <div><span class="method">GET</span> /family-members/{user_id}/{id}</div>
-        <p>Get a specific family member's details.</p>
-    </div>
-
-    <div class="endpoint">
-        <div><span class="method">PUT</span> /family-members/{user_id}/{id}</div>
-        <p>Update a family member.</p>
-        <pre>{
+<div class="endpoint">
+    <div><span class="method">PUT</span> /family-members/{user_id}/{id}</div>
+    <p>Update a family member.</p>
+    <pre>{
   "name": "John D.",
   "email": "john.d@example.com",
   "phone": "9876543211",
-  "relationship": "Cousin",
   "gender": "Male",
+  "relationship": "Cousin",
   "nationality": "Indian",
   "nationality_proof": "[File Upload - Optional]",
   "profile_photo": "[File Upload - Optional]"
 }</pre>
-    </div>
+</div>
 
-    <div class="endpoint">
-        <div><span class="method">DELETE</span> /family-members/{user_id}/{id}</div>
-        <p>Delete a family member.</p>
-    </div>
+<div class="endpoint">
+    <div><span class="method">DELETE</span> /family-members/{user_id}/{id}</div>
+    <p>Delete a family member.</p>
+</div>
 
-    <h2>🔹 Documents API</h2>
+<h2>🔹 Documents API</h2>
 
-    <div class="endpoint">
-        <div><span class="method">GET</span> /documents/{user_id}</div>
-        <p>List all documents uploaded by a specific employee.</p>
-    </div>
+<div class="endpoint">
+    <div><span class="method">GET</span> /documents/{user_id}</div>
+    <p>List all documents uploaded by a specific user.</p>
+</div>
 
-    <div class="endpoint">
-        <div><span class="method">POST</span> /documents/{user_id}</div>
-        <p>Upload a new document.</p>
-        <pre>{
+<div class="endpoint">
+    <div><span class="method">POST</span> /documents/{user_id}</div>
+    <p>Upload a new document.</p>
+    <pre>{
   "document": "[File Upload - Required]",
   "documentId": "doc123",
   "name": "Passport",
-  "document_type": "ID Proof",
-  "issue_date": "2023-05-01",
-  "issue_place": "Delhi",
-  "visa_provider": "XYZ Travels",
+  "document_type": "Visa",
+  "issue_date": "2024-01-01",
   "expiry_date": "2025-12-31",
-  "additional_info": "Scanned copy of passport",
-  "family_member_id": 2
-}</pre>
-    </div>
-
-    <div class="endpoint">
-        <div><span class="method">GET</span> /documents/{user_id}/{id}</div>
-        <p>View details of a specific document.</p>
-    </div>
-
-    <div class="endpoint">
-        <div><span class="method">PUT</span> /documents/{user_id}/{id}</div>
-        <p>Update a document.</p>
-        <pre>{
-  "document": "[File Upload - Optional]",
-  "documentId": "doc123",
-  "name": "Updated Passport",
-  "document_type": "ID Proof",
-  "issue_date": "2024-06-01",
   "issue_place": "Mumbai",
-  "visa_provider": "ABC Tours",
-  "expiry_date": "2026-12-31",
-  "additional_info": "Renewed copy",
+  "visa_provider": "VFS Global",
+  "additional_info": "Primary visa",
+  "file_type": "PDF",
   "family_member_id": 2
 }</pre>
-    </div>
+</div>
 
-    <div class="endpoint">
-        <div><span class="method">DELETE</span> /documents/{user_id}/{id}</div>
-        <p>Delete a document.</p>
-    </div>
+<h2>🔹 Leave Request API</h2>
 
-    <hr>
-    <p><strong>Note:</strong> All endpoints require <code>apiKeyAuth</code> middleware. For file uploads, use <code>multipart/form-data</code>.</p>
+<div class="endpoint">
+    <div><span class="method">POST</span> /leave/apply</div>
+    <p>Apply for a leave request including optional family participants.</p>
+    <pre>{
+  "employee_id": 1,
+  "leave_type": "vacation",
+  "is_half_day": false,
+  "leave_from_date": "2025-08-10",
+  "leave_to_date": "2025-08-15",
+  "travel_type": "business",
+  "travel_from": "Mumbai",
+  "travel_to": "Bangalore",
+  "ticket_provider": "MakeMyTrip",
+  "remarks": "Annual team retreat",
+  "family_participants": [
+    {
+      "family_member_id": 2,
+      "travel_from": "Mumbai",
+      "travel_to": "Goa",
+      "leave_from_date": "2025-08-11",
+      "leave_to_date": "2025-08-16"
+    }
+  ]
+}</pre>
+</div>
+
+<div class="endpoint">
+    <div><span class="method">POST</span> /leave/approve/{id}</div>
+    <p>Approve a specific leave request.</p>
+</div>
+
+<div class="endpoint">
+    <div><span class="method">POST</span> /leave/reject/{id}</div>
+    <p>Reject a specific leave request.</p>
+</div>
+
+<hr>
+<p><strong>Note:</strong> All endpoints require <code>apiKeyAuth</code> middleware. For file uploads, use <code>multipart/form-data</code>.</p>
 
 </body>
 </html>

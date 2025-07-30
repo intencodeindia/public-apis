@@ -113,9 +113,10 @@
 
 <div class="endpoint">
     <div><span class="method">POST</span> /leave/apply</div>
-    <p>Apply for a leave request including optional family participants.</p>
+    <p>Apply for a leave request including optional family members. Each family member can have their own travel dates.</p>
     <pre>{
   "employee_id": 1,
+  "applicant_id": 1,
   "leave_type": "vacation",
   "is_half_day": false,
   "leave_from_date": "2025-08-10",
@@ -125,7 +126,7 @@
   "travel_to": "Bangalore",
   "ticket_provider": "MakeMyTrip",
   "remarks": "Annual team retreat",
-  "family_participants": [
+  "family_members": [
     {
       "family_member_id": 2,
       "travel_from": "Mumbai",
@@ -139,12 +140,12 @@
 
 <div class="endpoint">
     <div><span class="method">POST</span> /leave/approve/{id}</div>
-    <p>Approve a specific leave request.</p>
+    <p>Approve a specific leave request by ID.</p>
 </div>
 
 <div class="endpoint">
     <div><span class="method">POST</span> /leave/reject/{id}</div>
-    <p>Reject a specific leave request.</p>
+    <p>Reject a specific leave request by ID.</p>
 </div>
 
 <hr>

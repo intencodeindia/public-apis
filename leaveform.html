@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leave Request Form with Employees & Family Members</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .family-member-block {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h2 class="mb-4">Leave Request Form</h2>
+    <form id="leaveRequestForm">
+
+      <!-- Employee selection -->
+      <div class="mb-3">
+        <label for="employee_id" class="form-label">Employee</label>
+        <select class="form-select" id="employee_id" required>
+          <option value="">Select Employee</option>
+          <option value="1" selected>Employee 1 - Alice Johnson</option>
+          <option value="2">Employee 2 - Bob Smith</option>
+          <option value="3">Employee 3 - Carol White</option>
+          <option value="4">Employee 4 - David Brown</option>
+          <option value="5">Employee 5 - Eva Green</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="applicant_id" class="form-label">Applicant ID</label>
+        <input type="number" class="form-control" id="applicant_id" required value="1" />
+      </div>
+
+      <div class="mb-3">
+        <label for="leave_type" class="form-label">Leave Type</label>
+        <select class="form-select" id="leave_type" required>
+          <option value="">Select Leave Type</option>
+          <option value="vacation" selected>Vacation</option>
+          <option value="sick">Sick</option>
+          <option value="casual">Casual</option>
+        </select>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="is_half_day" />
+        <label class="form-check-label" for="is_half_day">Is Half Day</label>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="leave_from_date" class="form-label">Leave From Date</label>
+          <input type="date" class="form-control" id="leave_from_date" required value="2025-08-10" />
+        </div>
+        <div class="col-md-6">
+          <label for="leave_to_date" class="form-label">Leave To Date</label>
+          <input type="date" class="form-control" id="leave_to_date" required value="2025-08-15" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="travel_type" class="form-label">Travel Type</label>
+        <select class="form-select" id="travel_type">
+          <option value="">Select Travel Type</option>
+          <option value="business" selected>Business</option>
+          <option value="personal">Personal</option>
+        </select>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="travel_from" class="form-label">Travel From</label>
+          <input type="text" class="form-control" id="travel_from" value="Mumbai" />
+        </div>
+        <div class="col-md-6">
+          <label for="travel_to" class="form-label">Travel To</label>
+          <input type="text" class="form-control" id="travel_to" value="Bangalore" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="ticket_provider" class="form-label">Ticket Provider</label>
+        <select class="form-select" id="ticket_provider">
+          <option value="">Select Ticket Provider</option>
+          <option value="employer" selected>Employer</option>
+          <option value="self">Self</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label for="remarks" class="form-label">Remarks</label>
+        <textarea class="form-control" id="remarks" rows="2">Annual team retreat</textarea>
+      </div>
+
+      <hr />
+
+      <!-- Family members traveling question -->
+      <div class="mb-3">
+        <label class="form-label">Are family members traveling?</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="familyTravel" id="familyTravelYes" value="yes" />
+            <label class="form-check-label" for="familyTravelYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="familyTravel" id="familyTravelNo" value="no" checked />
+            <label class="form-check-label" for="familyTravelNo">No</label>
+          </div>
+        </div>
+      </div>
+
+      <div id="familyMembersSection" style="display:none;">
+        <h4>Family Members Traveling</h4>
+        <div id="familyMembersContainer"></div>
+        <button type="button" class="btn btn-sm btn-primary mb-3" id="addFamilyMemberBtn">+ Add Family Member</button>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit Leave Request</button>
+    </form>
+
+    <pre id="output" class="mt-4 bg-light p-3"></pre>
+  </div>
+
+  <script>
+    // Employee and Family members example data
+    const allFamilyMembers = [
+      { id: 1, name: "Spouse - John Doe" },
+      { id: 2, name: "Child - Jane Doe" },
+      { id: 3, name: "Parent - Mary Doe" },
+      { id: 4, name: "Sibling - Mike Doe" },
+      { id: 5, name: "Child - Sam Doe" },
+    ];
+
+    const maxFamilyMembers = 5;
+
+    const familyTravelRadios = document.querySelectorAll('input[name="familyTravel"]');
+    const familyMembersSection = document.getElementById('familyMembersSection');
+    const familyMembersContainer = document.getElementById('familyMembersContainer');
+    const addFamilyMemberBtn = document.getElementById('addFamilyMemberBtn');
+
+    let familyMembersData = [];
+
+    familyTravelRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === 'yes' && radio.checked) {
+          familyMembersSection.style.display = 'block';
+        } else {
+          familyMembersSection.style.display = 'none';
+          familyMembersData = [];
+          renderFamilyMembers();
+        }
+      });
+    });
+
+    function createFamilyMemberBlock(index, data = {}) {
+      const options = allFamilyMembers.map(m => {
+        const selected = m.id === data.family_member_id ? 'selected' : '';
+        return `<option value="${m.id}" ${selected}>${m.name}</option>`;
+      }).join('');
+
+      return `
+        <div class="family-member-block" data-index="${index}">
+          <h5>Family Member #${index + 1}</h5>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <label class="form-label">Select Family Member</label>
+              <select class="form-select family_member_id" required>
+                <option value="">Select Family Member</option>
+                ${options}
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Travel From</label>
+              <input type="text" class="form-control travel_from" value="${data.travel_from || ''}" />
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Travel To</label>
+              <input type="text" class="form-control travel_to" value="${data.travel_to || ''}" />
+            </div>
+          </div>
+          <div class="row g-3 mt-1">
+            <div class="col-md-4">
+              <label class="form-label">Leave From Date</label>
+              <input type="date" class="form-control leave_from_date" value="${data.leave_from_date || ''}" required />
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Leave To Date</label>
+              <input type="date" class="form-control leave_to_date" value="${data.leave_to_date || ''}" required />
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+              <button type="button" class="btn btn-danger removeFamilyMemberBtn w-100">Remove</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderFamilyMembers() {
+      familyMembersContainer.innerHTML = '';
+      familyMembersData.forEach((member, i) => {
+        familyMembersContainer.insertAdjacentHTML('beforeend', createFamilyMemberBlock(i, member));
+      });
+
+      document.querySelectorAll('.removeFamilyMemberBtn').forEach((btn, idx) => {
+        btn.onclick = () => {
+          familyMembersData.splice(idx, 1);
+          renderFamilyMembers();
+        };
+      });
+
+      // Disable add button if max reached
+      addFamilyMemberBtn.disabled = familyMembersData.length >= maxFamilyMembers;
+    }
+
+    addFamilyMemberBtn.addEventListener('click', () => {
+      if (familyMembersData.length < maxFamilyMembers) {
+        familyMembersData.push({});
+        renderFamilyMembers();
+      }
+    });
+
+    document.getElementById('leaveRequestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Collect family members data if traveling
+      if (document.getElementById('familyTravelYes').checked) {
+        // Update familyMembersData from form fields
+        const blocks = familyMembersContainer.querySelectorAll('.family-member-block');
+        familyMembersData = [];
+
+        for (const block of blocks) {
+          const fmId = block.querySelector('.family_member_id').value;
+          const travelFrom = block.querySelector('.travel_from').value.trim();
+          const travelTo = block.querySelector('.travel_to').value.trim();
+          const leaveFrom = block.querySelector('.leave_from_date').value;
+          const leaveTo = block.querySelector('.leave_to_date').value;
+
+          if (!fmId || !leaveFrom || !leaveTo) {
+            alert('Please fill all required family member fields.');
+            return;
+          }
+
+          familyMembersData.push({
+            family_member_id: Number(fmId),
+            travel_from: travelFrom || null,
+            travel_to: travelTo || null,
+            leave_from_date: leaveFrom,
+            leave_to_date: leaveTo,
+          });
+        }
+      } else {
+        familyMembersData = [];
+      }
+
+      // Prepare final JSON payload
+      const payload = {
+        employee_id: Number(document.getElementById('employee_id').value),
+        applicant_id: Number(document.getElementById('applicant_id').value),
+        leave_type: document.getElementById('leave_type').value,
+        is_half_day: document.getElementById('is_half_day').checked,
+        leave_from_date: document.getElementById('leave_from_date').value,
+        leave_to_date: document.getElementById('leave_to_date').value,
+        travel_type: document.getElementById('travel_type').value || null,
+        travel_from: document.getElementById('travel_from').value.trim() || null,
+        travel_to: document.getElementById('travel_to').value.trim() || null,
+        ticket_provider: document.getElementById('ticket_provider').value || null,
+        remarks: document.getElementById('remarks').value.trim() || null,
+        family_members: familyMembersData,
+      };
+
+      // Output JSON
+      document.getElementById('output').textContent = JSON.stringify(payload, null, 2);
+
+      // TODO: Replace above with actual API call
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

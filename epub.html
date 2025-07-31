@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced EPUB Viewer (EPUB.js v0.3)</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background-color: #f8f8f8;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+    #viewer {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      min-height: 500px;
+      position: relative;
+    }
+    #epub-reader {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+    #controls {
+      margin-top: 15px;
+    }
+    #controls button {
+      margin-right: 10px;
+      padding: 8px 16px;
+    }
+  </style>
+
+  <!-- JSZip required for archived EPUBs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+
+  <!-- EPUB.js v0.3 -->
+  <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3/dist/epub.min.js"></script>
+</head>
+<body>
+
+  <h2>📚 EPUB Viewer (EPUB.js v0.3)</h2>
+  <p>Enter a URL to an EPUB file (e.g. from archive.org):</p>
+  <input type="text" id="fileUrl" value="https://archive.org/download/LinuxVoice/Linux-Voice-Issue-003.epub">
+  <button onclick="loadEPUB()">Load EPUB</button>
+
+  <div id="controls" style="display:none;">
+    <button onclick="prevPage()">⬅ Prev</button>
+    <button onclick="nextPage()">Next ➡</button>
+    <button onclick="rendition.flow('paginated')">📖 Paginated</button>
+    <button onclick="rendition.flow('scrolled-doc')">📜 Scrolled</button>
+  </div>
+
+  <div id="viewer">
+    <div id="epub-reader"></div>
+  </div>
+
+  <script>
+    let book, rendition;
+
+    async function loadEPUB() {
+      const inputUrl = document.getElementById("fileUrl").value;
+      const proxyUrl = "https://proffid.com/advanced-cors-proxy.php?url=" + encodeURIComponent(inputUrl);
+      const viewer = document.getElementById("epub-reader");
+      document.getElementById("controls").style.display = "none";
+      viewer.innerHTML = "📥 Loading EPUB...";
+
+      try {
+        const response = await fetch(proxyUrl);
+        if (!response.ok) throw new Error("Failed to fetch EPUB file.");
+
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+
+        // Clear any previous instance
+        viewer.innerHTML = "";
+
+        // Load EPUB
+        book = ePub(blobUrl);
+        rendition = book.renderTo("epub-reader", {
+          width: "100%",
+          height: "100%",
+          flow: "paginated",
+          allowScriptedContent: false, // safer
+          manager: "default" // you can change to "continuous" if needed
+        });
+
+        rendition.display();
+
+        // Optional: Hook example to access content
+        rendition.hooks.content.register((contents) => {
+          // Do something with contents.document
+          // console.log(contents.document.body);
+        });
+
+        document.getElementById("controls").style.display = "block";
+
+      } catch (err) {
+        viewer.innerHTML = `<p style="color:red;">❌ ${err.message}</p>`;
+      }
+    }
+
+    function nextPage() {
+      if (rendition) rendition.next();
+    }
+
+    function prevPage() {
+      if (rendition) rendition.prev();
+    }
+  </script>
+
+</body>
+</html>

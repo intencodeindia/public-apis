@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Advanced EPUB Viewer (EPUB.js v0.3)</title>
+  <title>EPUB Viewer with Details</title>
   <style>
     body {
       font-family: sans-serif;
       margin: 20px;
-      background-color: #f8f8f8;
     }
     input[type="text"] {
       width: 80%;
@@ -36,18 +35,21 @@
       margin-right: 10px;
       padding: 8px 16px;
     }
+    #book-info {
+      margin-top: 20px;
+      background: #f1f1f1;
+      padding: 10px;
+    }
   </style>
 
-  <!-- JSZip required for archived EPUBs -->
+  <!-- JSZip for archived EPUBs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
-
   <!-- EPUB.js v0.3 -->
   <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3/dist/epub.min.js"></script>
 </head>
 <body>
 
-  <h2>📚 EPUB Viewer (EPUB.js v0.3)</h2>
-  <p>Enter a URL to an EPUB file (e.g. from archive.org):</p>
+  <h2>📚 EPUB Viewer with Metadata + Pagination</h2>
   <input type="text" id="fileUrl" value="https://archive.org/download/LinuxVoice/Linux-Voice-Issue-003.epub">
   <button onclick="loadEPUB()">Load EPUB</button>
 
@@ -62,6 +64,8 @@
     <div id="epub-reader"></div>
   </div>
 
+  <div id="book-info"></div>
+
   <script>
     let book, rendition;
 
@@ -69,41 +73,71 @@
       const inputUrl = document.getElementById("fileUrl").value;
       const proxyUrl = "https://proffid.com/advanced-cors-proxy.php?url=" + encodeURIComponent(inputUrl);
       const viewer = document.getElementById("epub-reader");
-      document.getElementById("controls").style.display = "none";
+      const infoBox = document.getElementById("book-info");
+
       viewer.innerHTML = "📥 Loading EPUB...";
+      infoBox.innerHTML = "";
+      document.getElementById("controls").style.display = "none";
 
       try {
+        console.log("[1] Fetching EPUB from:", inputUrl);
         const response = await fetch(proxyUrl);
-        if (!response.ok) throw new Error("Failed to fetch EPUB file.");
+        if (!response.ok) throw new Error("❌ Failed to fetch EPUB");
 
         const blob = await response.blob();
         const blobUrl = URL.createObjectURL(blob);
+        console.log("[2] EPUB fetched and blob created");
 
-        // Clear any previous instance
         viewer.innerHTML = "";
 
-        // Load EPUB
         book = ePub(blobUrl);
+        console.log("[3] Book instance created");
+
+        // Load metadata
+        const metadata = await book.loaded.metadata;
+        console.log("[4] Metadata loaded:", metadata);
+
+        const spine = await book.loaded.spine;
+        console.log("[5] Spine loaded. Chapters:", spine.items.length);
+
+        // Create viewer
         rendition = book.renderTo("epub-reader", {
           width: "100%",
           height: "100%",
           flow: "paginated",
-          allowScriptedContent: false, // safer
-          manager: "default" // you can change to "continuous" if needed
+          allowScriptedContent: false,
+          manager: "default"
         });
 
         rendition.display();
 
-        // Optional: Hook example to access content
-        rendition.hooks.content.register((contents) => {
-          // Do something with contents.document
-          // console.log(contents.document.body);
-        });
-
         document.getElementById("controls").style.display = "block";
 
-      } catch (err) {
-        viewer.innerHTML = `<p style="color:red;">❌ ${err.message}</p>`;
+        // Display book info
+        infoBox.innerHTML = `
+          <h4>📘 Book Info</h4>
+          <strong>Title:</strong> ${metadata.title || "N/A"}<br>
+          <strong>Author:</strong> ${metadata.creator || "N/A"}<br>
+          <strong>Language:</strong> ${metadata.language || "N/A"}<br>
+          <strong>Chapters:</strong> ${spine.items.length}<br>
+          <strong>EPUB Size:</strong> ${(blob.size / 1024 / 1024).toFixed(2)} MB
+        `;
+
+        // Count rendered pages after display
+        rendition.on("rendered", section => {
+          const locations = rendition.locations.length();
+          console.log("[6] Rendered section:", section.href);
+          console.log("[7] Estimated total pages:", locations);
+        });
+
+        // Optional: track location changes
+        rendition.on("relocated", (location) => {
+          console.log("[8] Relocated to:", location);
+        });
+
+      } catch (error) {
+        viewer.innerHTML = `<p style="color:red;">❌ ${error.message}</p>`;
+        console.error("EPUB Load Error:", error);
       }
     }
 

@@ -1,0 +1,72 @@
+{
+
+
+  "students": [
+    {
+      "id": "S001",
+      "name": "John",
+      "email": "aarav.sharma@example.com",
+      "phone": "+91-9876543210",
+      "class": "8A",
+      "parents": {
+        "father_name": "Rajesh Sharma",
+        "mother_name": "Sunita Sharma",
+        "contact": "+919849323744",
+          "email": "kenvoiceai@gmail.com",
+      },
+      "fees": {
+        "total": 50000,
+        "paid": 30000,
+        "unpaid": 20000,
+        "status": "Partially Paid"
+      },
+      "progress_card": {
+        "Math": "A",
+        "Science": "B+",
+        "English": "A-",
+        "Social Studies": "B",
+        "Hindi": "A"
+      }
+    },
+    {
+      "id": "S002",
+      "name": "Sunil",
+      "email": "meera.patel@example.com",
+      "phone": "+91-9876512345",
+      "class": "9B",
+      "parents": {
+        "father_name": "Kiran Patel",
+        "mother_name": "Nita Patel",
+           "contact": "+919849323744",
+      "email": "mohammedowais0708@gmail.com",
+      },
+      "fees": {
+        "total": 55000,
+        "paid": 55000,
+        "unpaid": 0,
+        "status": "Paid"
+      },
+      "progress_card": {
+        "Math": "A+",
+        "Science": "A",
+        "English": "A",
+        "Social Studies": "A-",
+        "Hindi": "B+"
+      }
+    }
+  ],
+  "events": [
+    {
+      "event_id": "E001",
+      "name": "Annual Day",
+      "date": "2025-10-15",
+      "description": "Annual cultural event with performances and awards."
+    },
+    {
+      "event_id": "E002",
+      "name": "Science Fair",
+      "date": "2025-11-05",
+      "description": "Exhibition of science projects by students from grades 6 to 10."
+    }
+  ]
+}
